@@ -4,10 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Dog Finder</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+    <!-- HEADER STARTS -->
+    <header>
+        <!-- Wrapper starts -->
+        <div class="wrapper">
+            <h1>Dog Finder</h1>
+        <!-- Wrapper ends -->
+        </div>
+    <!-- HEADER ENDS -->
+    </header>
 
-    
+    <!-- MAIN STARTS -->
+    <main>
+        <!-- FORM SECTION STARTS -->
+        <section class="form-section">
+            <!-- Wrapper starts -->
+            <div class="wrapper">
+                <!-- FORM STARTS -->
+                <form action="" method="POST" name="animal-finder">
+                    <!-- Location -->
+                    <fieldset>
+                        <!-- City -->
+                        <label for="city" class="visually-hidden">Please provide your city</label>
+                        <input type="text" id="city" placeholder="City">
+
+                        <!-- Province/State -->
+                        <label for="province-state" class="visually-hidden">Please provide your city</label>
+                        <input type="text" id="province-state" placeholder="Province or State">
+                    </fieldset>
+
+                    <!-- Breed -->
+                    <label for=breed">Are you looking for a certain breed?</label>
+                    
+                    <select name="breed" id="breed">
+                        <!-- dynamically added from the API -->
+
+                    </select>
+
+                    <!-- Age -->
+                    <label for="age">Preferred age:</label>
+
+                    <select name="age" id="age">
+                        <!-- empty string for value so that it will not be inserted as a template literal into the API call -->
+                        <option value="">No Preference</option>
+                        <option value="Baby">Baby</option>
+                        <option value="Young">Young</option>
+                        <option value="Adult">Adult</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+
+                    <!-- Size -->
+                    <label for="size">Preferred size:</label>
+                    
+                    <select name="size" id="size">
+                        <!-- empty string for value so that it will not be inserted as a template literal into the API call -->
+                        <option value="">No Preference</option>
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">Extra-Large</option>
+                    </select>
+
+                    <!-- Gender -->
+                    <label for="gender">Preferred gender:</label>
+                    
+                    <select name="gender" id="gender">
+                        <!-- empty string for value so that it will not be inserted as a template literal into the API call -->
+                        <option value="">No Preference</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+
+                    <!-- Optional Preferences -->
+                    <fieldset>
+                        <h2>Please check off all that aply</h2>
+                        <!-- House Trained -->
+                        <input type="checkbox" id="house-trained">
+                        <label for="house-trained">House Trained</label>
+
+                        <!-- Has Shots -->
+                        <input type="checkbox" id="has-shots">
+                        <label for="has-shots">Has Shots</label>
+
+                        <!-- Fixed -->
+                        <input type="checkbox" id="fixed">
+                        <label for="fixed">Fixed</label>
+                    </fieldset>
+
+                <!-- FORM ENDS -->
+                </form>
+            <!-- Wrapper ends -->
+            </div>
+        <!-- FORM SECTION ENDS -->
+        </section>
+
+    <!-- MAIN ENDS -->
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="javascript/script.js"></script>
 </body>
 </html>
