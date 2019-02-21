@@ -74,64 +74,52 @@ dogApp.getBreed = function() {
 
 // Empty object, where we'll store the user's answers
 dogApp.userAnswers = {}
-console.log(dogApp.userAnswers);
 
 // Set the event listener for our form
 dogApp.userPreferences = function() {
     $('#animal-finder').submit(function(event) {
         event.preventDefault();
         dogApp.optionsSelectedArray = [];
-
+        
         // Get the User's Values
         // City
         dogApp.userAnswers.dogCityAnswer = $("#city").val();
-        console.log(dogApp.userAnswers.dogCityAnswer);
-
         // State/Province
         dogApp.userAnswers.dogProvinceStateAnswer = $("#province-state").val();
-        console.log(dogApp.userAnswers.dogProvinceStateAnswer);
-
+        
         // Dog Location
         dogApp.userAnswers.dogLocationAnswer = dogApp.userAnswers.dogCityAnswer + "," + dogApp.userAnswers.dogProvinceStateAnswer;
-        console.log(dogApp.userAnswers.dogLocationAnswer);
-
+        
         // Breed
         dogApp.userAnswers.breedAnswer = $("#breed").find(":selected").val();
-        console.log(dogApp.userAnswers.breedAnswer);
-
+        
         // Age
         dogApp.userAnswers.ageAnswer = $("#age").find(":selected").val();
-        console.log(dogApp.userAnswers.ageAnswer);
-
+        
         // Size
         dogApp.userAnswers.sizeAnswer = $("#size").find(":selected").val();
-        console.log(dogApp.userAnswers.sizeAnswer);
-
+        
         // Gender
         dogApp.userAnswers.genderAnswer = $("#gender").find(":selected").val();;
-        console.log(dogApp.userAnswers.genderAnswer);
-
+        
         // House Trained
         dogApp.userAnswers.houseTrainedAnswer = $("#housetrained:checked").val();
         if (dogApp.userAnswers.houseTrainedAnswer === "housetrained") {
             dogApp.optionsSelectedArray.push(dogApp.userAnswers.houseTrainedAnswer)
         };
-        console.log(dogApp.userAnswers.houseTrainedAnswer);
-
+        
         // Has Shots
         dogApp.userAnswers.shotsAnswer = $("#hasShots:checked").val();
         if (dogApp.userAnswers.shotsAnswer === "hasShots"){
             dogApp.optionsSelectedArray.push(dogApp.userAnswers.shotsAnswer)
         };
-        console.log(dogApp.userAnswers.shotsAnswer);
-
+        
         // Fixed
         dogApp.userAnswers.fixedAnswer = $("#altered:checked").val();
         if(dogApp.userAnswers.fixedAnswer === "altered"){
             dogApp.optionsSelectedArray.push(dogApp.userAnswers.fixedAnswer)
         }
-        console.log(dogApp.userAnswers.fixedAnswer);
-
+        
         
 
         // Second Ajax call -- return dogs that align with user's choices
@@ -172,23 +160,31 @@ dogApp.userPreferences = function() {
             }
         // Filter through the returned array to return dogs with the user's three optional selections
         }).then(function(data){
+            if (data.petfinder.pets === undefined) {
+                console.log('Invalid Location')
+                return
+            }
             dogApp.filterOptions(data);
-            
+            console.log(dogApp.optionsFilteredArray)
         })
-        if (dogApp.optionsFilteredArray <= 1){
-            console.log("Sorry! No dogs!")
-        }
     })
     
 }
 
 // Array for three optional selections -- House Trained, Has Shots and Altered
 dogApp.optionsSelectedArray = []
-console.log(dogApp.optionsSelectedArray);
 
 // Function to filter through the returned array to return dogs with the user's three optional selections
 dogApp.filterOptions = function(data) {
-    const petArray = data.petfinder.pets.pet;
+    console.log(data);
+    let petArray = data.petfinder.pets.pet;
+    if (petArray === undefined) {
+        console.log('No dogs match your requirements');
+        return;
+    }
+    if (Array.isArray(petArray) === false ) {
+        petArray = [petArray];
+    }
     dogApp.optionsFilteredArray = petArray;
     dogApp.optionsSelectedArray.forEach(element => {
         const filterValue = element;
@@ -209,7 +205,6 @@ dogApp.filterOptions = function(data) {
     });
 }
 
-console.log(dogApp.optionsFilteredArray);
 // Defining our init function
 dogApp.init = function() {
     dogApp.getBreed();
