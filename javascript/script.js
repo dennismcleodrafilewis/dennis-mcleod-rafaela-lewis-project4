@@ -126,10 +126,14 @@ dogApp.userPreferences = function() {
                 useCache: false
             }
         }).then(function(data){
-            const petArray = (data.petfinder.pets.pet);
-            console.log(petArray);
-            const houseTrainedArray = petArray.filter(petArray => {
-                return petArray.options.option[0].$t === "housetrained";
+            const petArray = data.petfinder.pets.pet;
+
+            const houseTrainedArray = petArray.filter(element => {
+                const optionsArray = element.options.option;
+                const housetrained = optionsArray.filter(element => {
+                    return element.$t === 'housetrained';
+                })
+                return housetrained.length > 0;
             })
             console.log(houseTrainedArray);
 
