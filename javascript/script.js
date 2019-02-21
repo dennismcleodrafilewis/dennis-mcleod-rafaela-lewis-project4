@@ -154,29 +154,37 @@ dogApp.userPreferences = function() {
                 sex: genderAnswer,
             }
         }).then(function(data){
-            // console.log(data);
-            const petArray = data.petfinder.pets.pet;
-            // console.log(petArray);
-            const houseTrainedArray = petArray.filter(element => {
-                if (element.options.option === undefined) return
-                let optionsArray = element.options.option;
-                if (Array.isArray(optionsArray) === false) {
-                    optionsArray = [optionsArray];
-                }
-                // console.log(optionsArray);
-                const housetrained = optionsArray.filter(element => {
-                    // console.log(element.$t);
-                    return element.$t === 'housetrained';
-                })
-                return housetrained.length > 0;
-            })
-            console.log(houseTrainedArray);
-
+            dogApp.filterOptions(data);
+            
         })
     })
-
+    
 }
+dogApp.optionsSelectedArray = []
 
+dogApp.filterOptions = function(data) {
+    const petArray = data.petfinder.pets.pet;
+    let optionsFilteredArray = petArray;
+    dogApp.optionsSelectedArray.forEach(element => {
+        const filterValue = element;
+        optionsFilteredArray = optionsFilteredArray.filter(element => {
+            if (element.options.option === undefined) return
+            let optionsArray = element.options.option;
+            if (Array.isArray(optionsArray) === false) {
+                optionsArray = [optionsArray];
+            }
+            // console.log(optionsArray);
+            const housetrained = optionsArray.filter(element => {
+                // console.log(element.$t);
+                return element.$t === filterValue;
+            })
+            return housetrained.length > 0;
+        })
+        
+    });
+    console.log(optionsFilteredArray);
+    
+}
 // Defining our init function
 dogApp.init = function() {
     dogApp.getBreed();
