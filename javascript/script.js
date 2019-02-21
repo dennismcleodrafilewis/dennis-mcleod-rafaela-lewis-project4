@@ -26,24 +26,38 @@ dogApp.petFindUrl = 'https://api.petfinder.com/pet.find';
 
 dogApp.proxyUrl = 'http://proxy.hackeryou.com'
 
+dogApp.corsProxy = 'https://cors-anywhere.herokuapp.com/'
 
 
 
 dogApp.getBreed = function() {
     // Initial call to the Pet Finder API to get a list of dog breeds
+    // $.ajax({
+    //     url: dogApp.proxyUrl,
+    //     method: 'GET',
+    //     dataType: 'json',
+    //     data: {
+    //         reqUrl: dogApp.breedApiUrl,
+    //         params: {
+    //             key: dogApp.apiKey,
+    //             format: 'json',
+    //             animal: 'dog',
+    //         },
+    //         proxyHeaders: {
+    //             'Some-Header': 'goes here'
+    //         },
+    //         xmlToJSON: false,
+    //         useCache: false            
+    //     }
+    // })
     $.ajax({
-        url: dogApp.proxyUrl,
+        url: dogApp.corsProxy + dogApp.breedApiUrl,
         method: 'GET',
         dataType: 'json',
         data: {
-            reqUrl: dogApp.breedApiUrl,
-            params: {
-                key: dogApp.apiKey,
-                format: 'json',
-                animal: 'dog',
-            },
-            xmlToJSON: false,
-            useCache: false            
+            key: dogApp.apiKey,
+            format: 'json',
+            animal: 'dog',
         }
     })
     // Get all dog breeds listed on the Pet Finder API
@@ -106,31 +120,49 @@ dogApp.userPreferences = function() {
 
         // Second Ajax call -- return dogs that align with user's choices
 
-        $.ajax({
-            url: dogApp.proxyUrl,
+        // $.ajax({
+        //     url: dogApp.proxyUrl,
+        //     method: 'GET',
+        //     dataType: 'json',
+        //     data: {
+        //         reqUrl: dogApp.petFindUrl,
+        //         params: {
+        //             key: dogApp.apiKey,
+        //             format: 'json',
+        //             animal: 'dog',
+        //             location: dogLocationAnswer,
+        //             breed: breedAnswer,
+        //             age: ageAnswer,
+        //             size: sizeAnswer,
+        //             sex: genderAnswer,
+        //         },
+        //         xmlToJSON: false,
+        //         useCache: false
+        //     }
+        $.ajax ({
+            url: dogApp.corsProxy + dogApp.petFindUrl,
             method: 'GET',
             dataType: 'json',
             data: {
-                reqUrl: dogApp.petFindUrl,
-                params: {
-                    key: dogApp.apiKey,
-                    format: 'json',
-                    animal: 'dog',
-                    location: dogLocationAnswer,
-                    breed: breedAnswer,
-                    age: ageAnswer,
-                    size: sizeAnswer,
-                    sex: genderAnswer,
-                },
-                xmlToJSON: false,
-                useCache: false
+                key: dogApp.apiKey,
+                format: 'json',
+                animal: 'dog',
+                location: dogLocationAnswer,
+                breed: breedAnswer,
+                age: ageAnswer,
+                size: sizeAnswer,
+                sex: genderAnswer,
             }
         }).then(function(data){
+            // console.log(data);
             const petArray = data.petfinder.pets.pet;
-
+            // console.log(petArray);
             const houseTrainedArray = petArray.filter(element => {
+                if (element.options.option === undefined) return
                 const optionsArray = element.options.option;
+                console.log(optionsArray);
                 const housetrained = optionsArray.filter(element => {
+                    // console.log(element.$t);
                     return element.$t === 'housetrained';
                 })
                 return housetrained.length > 0;
@@ -138,8 +170,8 @@ dogApp.userPreferences = function() {
             console.log(houseTrainedArray);
 
         })
-
     })
+
 }
 
 // Defining our init function
