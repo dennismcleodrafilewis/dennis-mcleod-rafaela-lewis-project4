@@ -72,51 +72,67 @@ dogApp.getBreed = function() {
     });
 }
 
+// Empty object, where we'll store the user's answers
+dogApp.userAnswers = {}
+console.log(dogApp.userAnswers);
+
 // Set the event listener for our form
 dogApp.userPreferences = function() {
     $('#animal-finder').submit(function(event) {
         event.preventDefault();
-        // console.log('I was changed!');
+        dogApp.optionsSelectedArray = [];
+
         // Get the User's Values
         // City
-        const dogCityAnswer = $("#city").val();
-        console.log(dogCityAnswer);
+        dogApp.userAnswers.dogCityAnswer = $("#city").val();
+        console.log(dogApp.userAnswers.dogCityAnswer);
 
         // State/Province
-        const dogProvinceStateAnswer = $("#province-state").val();
-        console.log(dogProvinceStateAnswer);
+        dogApp.userAnswers.dogProvinceStateAnswer = $("#province-state").val();
+        console.log(dogApp.userAnswers.dogProvinceStateAnswer);
 
         // Dog Location
-        const dogLocationAnswer = dogCityAnswer + "," + dogProvinceStateAnswer;
-        console.log(dogLocationAnswer);
+        dogApp.userAnswers.dogLocationAnswer = dogApp.userAnswers.dogCityAnswer + "," + dogApp.userAnswers.dogProvinceStateAnswer;
+        console.log(dogApp.userAnswers.dogLocationAnswer);
 
         // Breed
-        const breedAnswer = $("#breed").find(":selected").val();
-        console.log(breedAnswer);
+        dogApp.userAnswers.breedAnswer = $("#breed").find(":selected").val();
+        console.log(dogApp.userAnswers.breedAnswer);
 
         // Age
-        const ageAnswer = $("#age").find(":selected").val();
-        console.log(ageAnswer);
+        dogApp.userAnswers.ageAnswer = $("#age").find(":selected").val();
+        console.log(dogApp.userAnswers.ageAnswer);
 
         // Size
-        const sizeAnswer = $("#size").find(":selected").val();
-        console.log(sizeAnswer);
+        dogApp.userAnswers.sizeAnswer = $("#size").find(":selected").val();
+        console.log(dogApp.userAnswers.sizeAnswer);
 
         // Gender
-        const genderAnswer = $("#gender").find(":selected").val();;
-        console.log(genderAnswer);
+        dogApp.userAnswers.genderAnswer = $("#gender").find(":selected").val();;
+        console.log(dogApp.userAnswers.genderAnswer);
 
         // House Trained
-        const houseTrainedAnswer = $("input[id=house-trained]:checked").val();
-        // console.log();
+        dogApp.userAnswers.houseTrainedAnswer = $("#housetrained:checked").val();
+        if (dogApp.userAnswers.houseTrainedAnswer === "housetrained") {
+            dogApp.optionsSelectedArray.push(dogApp.userAnswers.houseTrainedAnswer)
+        };
+        console.log(dogApp.userAnswers.houseTrainedAnswer);
 
         // Has Shots
-        const shotsdAnswer = $("input[id=has-shots]:checked").val();
-        // console.log();
+        dogApp.userAnswers.shotsAnswer = $("#hasShots:checked").val();
+        if (dogApp.userAnswers.shotsAnswer === "hasShots"){
+            dogApp.optionsSelectedArray.push(dogApp.userAnswers.shotsAnswer)
+        };
+        console.log(dogApp.userAnswers.shotsAnswer);
 
         // Fixed
-        const fixeddAnswer = $("input[id=fixed]:checked").val();
-    // console.log();
+        dogApp.userAnswers.fixedAnswer = $("#altered:checked").val();
+        if(dogApp.userAnswers.fixedAnswer === "altered"){
+            dogApp.optionsSelectedArray.push(dogApp.userAnswers.fixedAnswer)
+        }
+        console.log(dogApp.userAnswers.fixedAnswer);
+
+        
 
         // Second Ajax call -- return dogs that align with user's choices
 
@@ -139,6 +155,7 @@ dogApp.userPreferences = function() {
         //         xmlToJSON: false,
         //         useCache: false
         //     }
+    
         $.ajax ({
             url: dogApp.corsProxy + dogApp.petFindUrl,
             method: 'GET',
@@ -147,27 +164,35 @@ dogApp.userPreferences = function() {
                 key: dogApp.apiKey,
                 format: 'json',
                 animal: 'dog',
-                location: dogLocationAnswer,
-                breed: breedAnswer,
-                age: ageAnswer,
-                size: sizeAnswer,
-                sex: genderAnswer,
+                location: dogApp.userAnswers.dogLocationAnswer,
+                breed: dogApp.userAnswers.breedAnswer,
+                age: dogApp.userAnswers.ageAnswer,
+                size: dogApp.userAnswers.sizeAnswer,
+                sex: dogApp.userAnswers.genderAnswer,
             }
+        // Filter through the returned array to return dogs with the user's three optional selections
         }).then(function(data){
             dogApp.filterOptions(data);
             
         })
+        if (dogApp.optionsFilteredArray <= 1){
+            console.log("Sorry! No dogs!")
+        }
     })
     
 }
-dogApp.optionsSelectedArray = []
 
+// Array for three optional selections -- House Trained, Has Shots and Altered
+dogApp.optionsSelectedArray = []
+console.log(dogApp.optionsSelectedArray);
+
+// Function to filter through the returned array to return dogs with the user's three optional selections
 dogApp.filterOptions = function(data) {
     const petArray = data.petfinder.pets.pet;
-    let optionsFilteredArray = petArray;
+    dogApp.optionsFilteredArray = petArray;
     dogApp.optionsSelectedArray.forEach(element => {
         const filterValue = element;
-        optionsFilteredArray = optionsFilteredArray.filter(element => {
+        dogApp.optionsFilteredArray = dogApp.optionsFilteredArray.filter(element => {
             if (element.options.option === undefined) return
             let optionsArray = element.options.option;
             if (Array.isArray(optionsArray) === false) {
@@ -182,9 +207,9 @@ dogApp.filterOptions = function(data) {
         })
         
     });
-    console.log(optionsFilteredArray);
-    
 }
+
+console.log(dogApp.optionsFilteredArray);
 // Defining our init function
 dogApp.init = function() {
     dogApp.getBreed();
@@ -194,7 +219,4 @@ dogApp.init = function() {
 // Run the init
 $(function() {
     dogApp.init();
-
-
-
 });
