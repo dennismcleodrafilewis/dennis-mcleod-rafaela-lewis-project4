@@ -161,11 +161,12 @@ dogApp.userPreferences = function() {
         // Filter through the returned array to return dogs with the user's three optional selections
         }).then(function(data){
             if (data.petfinder.pets === undefined) {
-                console.log('Invalid Location')
+                swal("Please make sure you've entered a City and Province/State in North America");
                 return
             }
             dogApp.filterOptions(data);
             console.log(dogApp.optionsFilteredArray)
+            dogApp.displayDogs();
         })
     })
     
@@ -179,7 +180,7 @@ dogApp.filterOptions = function(data) {
     console.log(data);
     let petArray = data.petfinder.pets.pet;
     if (petArray === undefined) {
-        console.log('No dogs match your requirements');
+        swal("No dogs match your requirements");
         return;
     }
     if (Array.isArray(petArray) === false ) {
@@ -203,6 +204,20 @@ dogApp.filterOptions = function(data) {
         })
         
     });
+}
+
+// Append the Dogs to the Results section
+dogApp.displayDogs = function(){
+    dogApp.optionsFilteredArray.forEach(function(dog){
+       const image = $("<img>").attr("src", dog.media.photos.photo[0]);
+       const name = $("<h3>").text(dog.name.$t);
+       const location = $("<p>").text(dog.contact.city.$t);
+        const nameLowerCase = name.toLowerCase()
+        const button = $("<a>").addClass("button").att("href", `https://www.petfinder.com/dog/${nameLowerCase}-${dog.id.$t}/${dog.contact.state.$t}/${dog.contact.city.$t}`).text(`Meet ${dog.name.$t}`)
+       const allDogInfo = $("<div>").addClass("grid-item").append(image, name, location, button);
+       $("#grid-container").append(allDogInfo);
+    })
+
 }
 
 // Defining our init function
