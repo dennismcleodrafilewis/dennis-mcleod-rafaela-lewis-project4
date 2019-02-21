@@ -17,6 +17,7 @@
 
 const dogApp = {};
 
+// Define variables
 dogApp.apiKey = 'a9c9715ac699393acb4012b8e4f9a479';
 
 dogApp.breedApiUrl = 'https://api.petfinder.com/breed.list';
@@ -25,7 +26,11 @@ dogApp.petFindUrl = 'https://api.petfinder.com/pet.find';
 
 dogApp.proxyUrl = 'http://proxy.hackeryou.com'
 
+
+
+
 dogApp.getBreed = function() {
+    // Initial call to the Pet Finder API to get a list of dog breeds
     $.ajax({
         url: dogApp.proxyUrl,
         method: 'GET',
@@ -41,9 +46,11 @@ dogApp.getBreed = function() {
             useCache: false            
         }
     })
+    // Get all dog breeds listed on the Pet Finder API
     .then(function(response) {
         const breeds = response.petfinder.breeds.breed;
 
+        // Populate the breed selection drop down menu with all breeds listed in the Pet Finder API
         breeds.forEach(element => {
             $('#breed').append(`<option value="${element.$t}">${element.$t}</option>`);
         });
@@ -51,19 +58,96 @@ dogApp.getBreed = function() {
     });
 }
 
+// Set the event listener for our form
 dogApp.userPreferences = function() {
-    $('#animal-finder').change(function() {
-        console.log('I was changed!');
+    $('#animal-finder').submit(function(event) {
+        event.preventDefault();
+        // console.log('I was changed!');
+        // Get the User's Values
+        // City
+        const dogCityAnswer = $("#city").val();
+        console.log(dogCityAnswer);
+
+        // State/Province
+        const dogProvinceStateAnswer = $("#province-state").val();
+        console.log(dogProvinceStateAnswer);
+
+        // Dog Location
+        const dogLocationAnswer = dogCityAnswer + "," + dogProvinceStateAnswer;
+        console.log(dogLocationAnswer);
+
+        // Breed
+        const breedAnswer = $("#breed").find(":selected").val();
+        console.log(breedAnswer);
+
+        // Age
+        const ageAnswer = $("#age").find(":selected").val();
+        console.log(ageAnswer);
+
+        // Size
+        const sizeAnswer = $("#size").find(":selected").val();
+        console.log(sizeAnswer);
+
+        // Gender
+        const genderAnswer = $("#gender").find(":selected").val();;
+        console.log(genderAnswer);
+
+        // House Trained
+        const houseTrainedAnswer = $("input[id=house-trained]:checked").val();
+        // console.log();
+
+        // Has Shots
+        const shotsdAnswer = $("input[id=has-shots]:checked").val();
+        // console.log();
+
+        // Fixed
+        const fixeddAnswer = $("input[id=fixed]:checked").val();
+    // console.log();
+
+        // Second Ajax call -- return dogs that align with user's choices
+
+        $.ajax({
+            url: dogApp.proxyUrl,
+            method: 'GET',
+            dataType: 'json',
+            data: {
+                reqUrl: dogApp.petFindUrl,
+                params: {
+                    key: dogApp.apiKey,
+                    format: 'json',
+                    animal: 'dog',
+                    location: dogLocationAnswer,
+                    breed: breedAnswer,
+                    age: ageAnswer,
+                    size: sizeAnswer,
+                    sex: genderAnswer,
+                },
+                xmlToJSON: false,
+                useCache: false
+            }
+        }).then(function(data){
+            const petArray = (data.petfinder.pets.pet);
+            console.log(petArray);
+            const houseTrainedArray = petArray.filter(petArray => {
+                return petArray.options.option[0].$t === "housetrained";
+            })
+            console.log(houseTrainedArray);
+
+        })
+
     })
 }
 
-
+// Defining our init function
 dogApp.init = function() {
     dogApp.getBreed();
     dogApp.userPreferences();
 }
 
-
+// Run the init
 $(function() {
     dogApp.init();
+
+
+
 });
