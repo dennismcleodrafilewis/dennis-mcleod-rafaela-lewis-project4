@@ -159,8 +159,11 @@ dogApp.userPreferences = function() {
             // console.log(petArray);
             const houseTrainedArray = petArray.filter(element => {
                 if (element.options.option === undefined) return
-                const optionsArray = element.options.option;
-                console.log(optionsArray);
+                let optionsArray = element.options.option;
+                if (Array.isArray(optionsArray) === false) {
+                    optionsArray = [optionsArray];
+                }
+                // console.log(optionsArray);
                 const housetrained = optionsArray.filter(element => {
                     // console.log(element.$t);
                     return element.$t === 'housetrained';
