@@ -14,3 +14,56 @@
 // 7) Has shots (yes, no, don't care)
 // 8) Spayed/Neutered (yes, no, don't care.)
 // 9) Do you have a desired breed? Aiming for dropdown menu for breed or button option for don't care
+
+const dogApp = {};
+
+dogApp.apiKey = 'a9c9715ac699393acb4012b8e4f9a479';
+
+dogApp.breedApiUrl = 'https://api.petfinder.com/breed.list';
+
+dogApp.petFindUrl = 'https://api.petfinder.com/pet.find';
+
+dogApp.proxyUrl = 'http://proxy.hackeryou.com'
+
+dogApp.getBreed = function() {
+    $.ajax({
+        url: dogApp.proxyUrl,
+        method: 'GET',
+        dataType: 'json',
+        data: {
+            reqUrl: dogApp.breedApiUrl,
+            params: {
+                key: dogApp.apiKey,
+                format: 'json',
+                animal: 'dog',
+            },
+            xmlToJSON: false,
+            useCache: false            
+        }
+    })
+    .then(function(response) {
+        const breeds = response.petfinder.breeds.breed;
+
+        breeds.forEach(element => {
+            $('#breed').append(`<option value="${element.$t}">${element.$t}</option>`);
+        });
+            
+    });
+}
+
+dogApp.userPreferences = function() {
+    $('#animal-finder').change(function() {
+        console.log('I was changed!');
+    })
+}
+
+
+dogApp.init = function() {
+    dogApp.getBreed();
+    dogApp.userPreferences();
+}
+
+
+$(function() {
+    dogApp.init();
+});
