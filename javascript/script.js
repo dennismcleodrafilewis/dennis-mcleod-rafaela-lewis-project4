@@ -4,17 +4,6 @@
 
 // Step 3: We'll display the results based on user selection. Specifically (A) Image (B) Name (C) Gender (D) Age (E)Location, and a button to learn more about the dog on Petfinder 
 
-// Quiz Questions:
-// 1) Location
-// 2) Drop down menu for age (ie. baby, young, adult, senior) that aligns with AGE filters on Pet Finder
-// 3) Size (ie. small, medium, large) that aligns with SIZE filters on Pet Finder
-// 4) Gender (ie. male, female, don't care) that aligns with GENDER filters on Pet Finder
-// 5) Hypoallergenic (yes, no, don't care). We'll filter through the breeds.list that Pet Finder returns (terrier = hypoallergenic, all others = not) -- WE'LL COME BACK TO THAT ...
-// 6) House trained (yes, no, don't care).
-// 7) Has shots (yes, no, don't care)
-// 8) Spayed/Neutered (yes, no, don't care.)
-// 9) Do you have a desired breed? Aiming for dropdown menu for breed or button option for don't care
-
 const dogApp = {};
 
 // Define variables
@@ -120,8 +109,6 @@ dogApp.userPreferences = function() {
             dogApp.optionsSelectedArray.push(dogApp.userAnswers.fixedAnswer)
         }
         
-        
-
         // Second Ajax call -- return dogs that align with user's choices
 
         // $.ajax({
@@ -166,6 +153,8 @@ dogApp.userPreferences = function() {
             }
             dogApp.filterOptions(data);
             console.log(dogApp.optionsFilteredArray)
+            // Empty out container after search has been run
+            $("#grid-container").empty();
             dogApp.displayDogs();
         })
     })
@@ -207,18 +196,33 @@ dogApp.filterOptions = function(data) {
 }
 
 // Append the Dogs to the Results section
+
+// OPTION 1 -- Can't get the anchor to work
 dogApp.displayDogs = function(){
     dogApp.optionsFilteredArray.forEach(function(dog){
-       const image = $("<img>").attr("src", dog.media.photos.photo[0]);
+       const image = $("<img>").attr("src", dog.media.photos.photo[2].$t);
        const name = $("<h3>").text(dog.name.$t);
        const location = $("<p>").text(dog.contact.city.$t);
-        const nameLowerCase = name.toLowerCase()
-        const button = $("<a>").addClass("button").att("href", `https://www.petfinder.com/dog/${nameLowerCase}-${dog.id.$t}/${dog.contact.state.$t}/${dog.contact.city.$t}`).text(`Meet ${dog.name.$t}`)
+        // const nameLowerCase = name.toLowerCase()
+        const button = $("<a>").addClass("button").attr("href", `https://www.petfinder.com/petdetail/${dog.id.$t}`).text(`Meet ${dog.name.$t}`);
        const allDogInfo = $("<div>").addClass("grid-item").append(image, name, location, button);
        $("#grid-container").append(allDogInfo);
     })
-
 }
+
+// OPTION 2
+// dogApp.displayDogs = function () {
+//     dogApp.optionsFilteredArray.forEach(function (dog) {
+//         $("#grid-container").append(
+//            `<div class="grid-item">
+//             <img src="${dog.media.photos.photo[2].$t}">
+//             <h3 class="dog-name">${dog.name.$t}</h3>
+//             <p>${dog.contact.city.$t}, ${dog.contact.state.$t}</p>
+//             <a class="button" href="https://www.petfinder.com/petdetail/${dog.id.$t}">Meet ${dog.name.$t}</a>
+//             </div>`
+//         )
+//     })
+// }
 
 // Defining our init function
 dogApp.init = function() {
