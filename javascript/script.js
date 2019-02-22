@@ -17,28 +17,8 @@ dogApp.proxyUrl = 'http://proxy.hackeryou.com'
 
 dogApp.corsProxy = 'https://cors-anywhere.herokuapp.com/'
 
-
-
 dogApp.getBreed = function() {
     // Initial call to the Pet Finder API to get a list of dog breeds
-    // $.ajax({
-    //     url: dogApp.proxyUrl,
-    //     method: 'GET',
-    //     dataType: 'json',
-    //     data: {
-    //         reqUrl: dogApp.breedApiUrl,
-    //         params: {
-    //             key: dogApp.apiKey,
-    //             format: 'json',
-    //             animal: 'dog',
-    //         },
-    //         proxyHeaders: {
-    //             'Some-Header': 'goes here'
-    //         },
-    //         xmlToJSON: false,
-    //         useCache: false            
-    //     }
-    // })
     $.ajax({
         url: dogApp.corsProxy + dogApp.breedApiUrl,
         method: 'GET',
@@ -110,27 +90,6 @@ dogApp.userPreferences = function() {
         }
         
         // Second Ajax call -- return dogs that align with user's choices
-
-        // $.ajax({
-        //     url: dogApp.proxyUrl,
-        //     method: 'GET',
-        //     dataType: 'json',
-        //     data: {
-        //         reqUrl: dogApp.petFindUrl,
-        //         params: {
-        //             key: dogApp.apiKey,
-        //             format: 'json',
-        //             animal: 'dog',
-        //             location: dogLocationAnswer,
-        //             breed: breedAnswer,
-        //             age: ageAnswer,
-        //             size: sizeAnswer,
-        //             sex: genderAnswer,
-        //         },
-        //         xmlToJSON: false,
-        //         useCache: false
-        //     }
-    
         $.ajax ({
             url: dogApp.corsProxy + dogApp.petFindUrl,
             method: 'GET',
@@ -152,13 +111,11 @@ dogApp.userPreferences = function() {
                 return
             }
             dogApp.filterOptions(data);
-            console.log(dogApp.optionsFilteredArray)
             // Empty out container after search has been run
             $("#grid-container").empty();
             dogApp.displayDogs();
         })
     })
-    
 }
 
 // Array for three optional selections -- House Trained, Has Shots and Altered
@@ -166,7 +123,6 @@ dogApp.optionsSelectedArray = []
 
 // Function to filter through the returned array to return dogs with the user's three optional selections
 dogApp.filterOptions = function(data) {
-    console.log(data);
     let petArray = data.petfinder.pets.pet;
     if (petArray === undefined) {
         swal("No dogs match your requirements");
@@ -184,9 +140,7 @@ dogApp.filterOptions = function(data) {
             if (Array.isArray(optionsArray) === false) {
                 optionsArray = [optionsArray];
             }
-            // console.log(optionsArray);
             const housetrained = optionsArray.filter(element => {
-                // console.log(element.$t);
                 return element.$t === filterValue;
             })
             return housetrained.length > 0;
@@ -196,8 +150,6 @@ dogApp.filterOptions = function(data) {
 }
 
 // Append the Dogs to the Results section
-
-// OPTION 1 -- Can't get the anchor to work
 dogApp.displayDogs = function(){
     dogApp.optionsFilteredArray.forEach(function(dog){ 
         if (dog.media.photos === undefined) return; 
@@ -214,20 +166,6 @@ dogApp.displayDogs = function(){
        $("#grid-container").append(gridItem);
     })
 }
-
-// OPTION 2
-// dogApp.displayDogs = function () {
-//     dogApp.optionsFilteredArray.forEach(function (dog) {
-//         $("#grid-container").append(
-//            `<div class="grid-item">
-//             <img src="${dog.media.photos.photo[2].$t}">
-//             <h3 class="dog-name">${dog.name.$t}</h3>
-//             <p>${dog.contact.city.$t}, ${dog.contact.state.$t}</p>
-//             <a class="button" href="https://www.petfinder.com/petdetail/${dog.id.$t}">Meet ${dog.name.$t}</a>
-//             </div>`
-//         )
-//     })
-// }
 
 // Defining our init function
 dogApp.init = function() {
