@@ -207,7 +207,8 @@ dogApp.displayDogs = function(){
         // const nameLowerCase = name.toLowerCase()
         const button = $("<a>").addClass("button").attr("href", `https://www.petfinder.com/petdetail/${dog.id.$t}`).text(`Meet your Mutt Match`);
         const contentFlex = $('<div>').addClass('content-flex-container').append(name,location,button)
-        const gridItem = $('<div>').addClass('grid-item').append(image, contentFlex)
+        const imageDiv = $('<div>').addClass('image-container').append(image);
+        const gridItem = $('<div>').addClass('grid-item').append(imageDiv, contentFlex)
         // const imgItem = $('.grid-item').append(image);
     //    const textItem = $('.grid-item').append(name,location,button);
        $("#grid-container").append(gridItem);

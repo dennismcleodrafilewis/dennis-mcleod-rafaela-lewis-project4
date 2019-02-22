@@ -176,3 +176,140 @@ fieldset {
 /* Font and Background Styles */
 html {
   font-size: 125%; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #363537;
+  background: floralwhite;
+  line-height: 1.6; }
+
+h1 {
+  font-family: "Love Ya Like A Sister", cursive;
+  font-size: 7rem;
+  line-height: 1; }
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700; }
+
+header {
+  padding-top: 40px; }
+
+.accent-text {
+  font-family: "Love Ya Like A Sister", cursive; }
+
+.dog-form {
+  margin-top: 50px; }
+
+.location-flex {
+  width: 100%;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+[type="text"] {
+  background: floralwhite;
+  border: 2px solid transparent;
+  border-bottom: 2px solid slateblue;
+  width: 49%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5rem;
+  color: #363537;
+  padding-left: 20px; }
+
+.breed-container {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%; }
+
+[class="breed-label"] {
+  width: 50%;
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  padding: 10px;
+  font-size: 1.3rem; }
+
+select {
+  width: 70%;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  border: 2px solid slateblue;
+  background-color: floralwhite;
+  margin: 0 auto; }
+
+#breed {
+  width: 50%; }
+
+.triple-option-container {
+  margin-top: 20px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around; }
+
+.age-container, .size-container, .gender-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 33%;
+  text-align: center; }
+  .age-container label, .size-container label, .gender-container label {
+    font-size: 1.3rem; }
+
+footer {
+  text-align: center; }
+
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2% 5%; }
+
+.grid-item {
+  background: tomato;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.image-container {
+  height: 400px;
+  width: auto; }
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover; }
+
+.content-flex-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  margin: 20px 0; }

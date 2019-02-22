@@ -37,3 +37,23 @@ fieldset {
 html {
     font-size: 125%;
 }
+
+body {
+    font-family: $primary-font;
+    color: $primary-text;
+    background: $background;
+    line-height: 1.6;
+}
+
+// Font Styles
+
+h1 {
+    font-family: $accent-font;
+    font-size: 7rem;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: $bold;
+}

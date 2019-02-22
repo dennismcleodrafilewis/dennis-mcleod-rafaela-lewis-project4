@@ -1,0 +1,76 @@
+.dog-form {
+    margin-top: 50px;
+    // padding: 0 5%;
+}
+
+// Location Inputs
+// Flex styles
+.location-flex {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+[type="text"] {
+    background: $background;
+    border: 2px solid transparent;
+    border-bottom: 2px solid $accent-color;
+    width: 49%;
+    font-family: $primary-font;
+    font-size: 1.5rem;
+    color: $primary-text;
+    padding-left: 20px;
+}
+
+// Breed inputs
+.breed-container {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+}
+
+[class="breed-label"] {
+    width: 50%;
+    display: block;
+    font-family: $primary-font;
+    padding: 10px;
+    font-size: 1.3rem;
+}
+
+select {
+    width: 70%; 
+    padding: 10px;
+  	font-size: 1rem;
+  	font-family: $primary-font;
+  	font-weight: $regular;
+  	// letter-spacing: 1px;
+  	border: 2px solid $accent-color;
+  	background-color: $background;
+  	// -webkit-appearance: none;
+  	// -moz-appearance: none;
+  	// appearance: none;
+  	margin: 0 auto;
+}
+
+#breed {
+    width: 50%;
+}
+
+// Age, Size, Gender styles
+.triple-option-container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.age-container, .size-container, .gender-container {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    text-align: center;
+    label {
+        font-size: 1.3rem;
+    }
+}

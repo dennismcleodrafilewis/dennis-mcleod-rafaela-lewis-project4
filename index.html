@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dog Finder</title>
+    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Open+Sans:400,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
@@ -12,7 +13,8 @@
     <header>
         <!-- Wrapper starts -->
         <div class="wrapper">
-            <h1>Dog Finder</h1>
+            <h1>Mutt Match</h1>
+            <h2>Answers a few quick questions, and we'll find your dream <span class="accent-text">Mutt Match</span>.</h2>
         <!-- Wrapper ends -->
         </div>
     <!-- HEADER ENDS -->
@@ -25,9 +27,9 @@
             <!-- Wrapper starts -->
             <div class="wrapper">
                 <!-- FORM STARTS -->
-                <form action="" method="POST" name="animal-finder" id="animal-finder">
+                <form action="" method="POST" name="animal-finder" id="animal-finder" class="dog-form">
                     <!-- Location -->
-                    <fieldset>
+                    <fieldset class="location-flex">
                         <!-- City -->
                         <label for="city" class="visually-hidden">Please provide your city</label>
                         <input type="text" id="city" placeholder="City" required>
@@ -38,47 +40,62 @@
                     </fieldset>
 
                     <!-- Breed -->
-                    <label for=breed">Are you looking for a certain breed?</label>
+                    <div class="breed-container">
+                        <label for=breed" class="breed-label">Are you looking for a certain breed?</label>
+                        
+                        <select name="breed" id="breed">
+                            <option value="">No Preference</option>
+                            <!-- Additional breeds dynamically added from the API -->
+                        </select>
+                    </div>
+
+                    <!-- Triple Option Container starts -->
+                    <div class="triple-option-container">
+                        <!-- Age -->
+                        <div class="age-container">
+                            <label for="age">Preferred age:</label>
+                        
+                            <select name="age" id="age">
+                                <!-- empty string for value so that it will not be inserted as a template literal into the API call -->
+                                <option value="">No Preference</option>
+                                <option value="Baby">Baby</option>
+                                <option value="Young">Young</option>
+                                <option value="Adult">Adult</option>
+                                <option value="Senior">Senior</option>
+                            </select>
+                        </div>
+                        
+                        
+                        <!-- Size -->
+                        <div class="size-container">
+                            <label for="size">Preferred size:</label>
+                        
+                            <select name="size" id="size">
+                                <!-- empty string for value so that it will not be inserted as a template literal into the API call -->
+                                <option value="">No Preference</option>
+                                <option value="S">Small</option>
+                                <option value="M">Medium</option>
+                                <option value="L">Large</option>
+                                <option value="XL">Extra-Large</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Gender -->
+                        <div class="gender-container">
+                            <label for="gender">Preferred gender:</label>
+                        
+                            <select name="gender" id="gender">
+                                <!-- empty string for value so that it will not be inserted as a template literal into the API call -->
+                                <option value="">No Preference</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                        </div>
+                    <!-- Triple Option Container ends -->
+                    </div>
+
                     
-                    <select name="breed" id="breed">
-                        <option value="">No Preference</option>
-                        <!-- dynamically added from the API -->
-
-                    </select>
-
-                    <!-- Age -->
-                    <label for="age">Preferred age:</label>
-
-                    <select name="age" id="age">
-                        <!-- empty string for value so that it will not be inserted as a template literal into the API call -->
-                        <option value="">No Preference</option>
-                        <option value="Baby">Baby</option>
-                        <option value="Young">Young</option>
-                        <option value="Adult">Adult</option>
-                        <option value="Senior">Senior</option>
-                    </select>
-
-                    <!-- Size -->
-                    <label for="size">Preferred size:</label>
                     
-                    <select name="size" id="size">
-                        <!-- empty string for value so that it will not be inserted as a template literal into the API call -->
-                        <option value="">No Preference</option>
-                        <option value="S">Small</option>
-                        <option value="M">Medium</option>
-                        <option value="L">Large</option>
-                        <option value="XL">Extra-Large</option>
-                    </select>
-
-                    <!-- Gender -->
-                    <label for="gender">Preferred gender:</label>
-                    
-                    <select name="gender" id="gender">
-                        <!-- empty string for value so that it will not be inserted as a template literal into the API call -->
-                        <option value="">No Preference</option>
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
-                    </select>
  
                     <!-- Optional Preferences -->
                     <!-- Naming conventions on IDs set to match values in the Petfinder API. -->
@@ -117,6 +134,14 @@
 
     <!-- MAIN ENDS -->
     </main>
+
+    <!-- FOOTER STARTS -->
+    <footer>
+        <div class="wrapper">
+            <p>© Dennis McLeod & Rafaela Lewis 2019.</p>
+        </div>
+    </footer>
+    <!-- FOOTER ENDS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="javascript/script.js"></script>
