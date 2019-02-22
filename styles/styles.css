@@ -147,9 +147,9 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 /* Default styles */
 img {
-  max-width: 300px;
   width: 100%;
-  display: block; }
+  display: block;
+  max-height: 400px; }
 
 ul {
   list-style: none;

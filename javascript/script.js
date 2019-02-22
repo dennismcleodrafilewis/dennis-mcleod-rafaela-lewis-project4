@@ -199,14 +199,18 @@ dogApp.filterOptions = function(data) {
 
 // OPTION 1 -- Can't get the anchor to work
 dogApp.displayDogs = function(){
-    dogApp.optionsFilteredArray.forEach(function(dog){
+    dogApp.optionsFilteredArray.forEach(function(dog){ 
+        if (dog.media.photos === undefined) return; 
        const image = $("<img>").attr("src", dog.media.photos.photo[2].$t);
        const name = $("<h3>").text(dog.name.$t);
-       const location = $("<p>").text(dog.contact.city.$t);
+       const location = $("<p>").text(`${dog.contact.city.$t}, ${dog.contact.state.$t}`);
         // const nameLowerCase = name.toLowerCase()
-        const button = $("<a>").addClass("button").attr("href", `https://www.petfinder.com/petdetail/${dog.id.$t}`).text(`Meet ${dog.name.$t}`);
-       const allDogInfo = $("<div>").addClass("grid-item").append(image, name, location, button);
-       $("#grid-container").append(allDogInfo);
+        const button = $("<a>").addClass("button").attr("href", `https://www.petfinder.com/petdetail/${dog.id.$t}`).text(`Meet your Mutt Match`);
+        const contentFlex = $('<div>').addClass('content-flex-container').append(name,location,button)
+        const gridItem = $('<div>').addClass('grid-item').append(image, contentFlex)
+        // const imgItem = $('.grid-item').append(image);
+    //    const textItem = $('.grid-item').append(name,location,button);
+       $("#grid-container").append(gridItem);
     })
 }
 
