@@ -99,19 +99,22 @@
  
                     <!-- Optional Preferences -->
                     <!-- Naming conventions on IDs set to match values in the Petfinder API. -->
-                    <fieldset>
-                        <h2>Please check off all that apply</h2>
+                    <fieldset class="option-selectors">
+                        <p>Please check off all that apply:</p>
                         <!-- House Trained -->
-                        <input type="checkbox" id="housetrained" value="housetrained">
-                        <label for="house-trained">House Trained</label>
-
-                        <!-- Has Shots -->
-                        <input type="checkbox" id="hasShots" value="hasShots">
-                        <label for="has-shots">Has Shots</label>
-
-                        <!-- Fixed -->
-                        <input type="checkbox" id="altered" value="altered">
-                        <label for="fixed">Fixed</label>
+                        <div class="options-container">
+                            <input type="checkbox" id="housetrained" value="housetrained">
+                            <label for="housetrained">House Trained</label>
+    
+                            <!-- Has Shots -->
+                            <input type="checkbox" id="has-shots" value="hasShots">
+                            <label for="has-shots">Has Shots</label>
+    
+                            <!-- Fixed -->
+                            <input type="checkbox" id="altered" value="altered">
+                            <label for="altered">Fixed</label>
+                        
+                        </div>
                     </fieldset>
                     <input type="submit">
 
