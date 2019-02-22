@@ -147,7 +147,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 /* Default styles */
 img {
-  max-width: 100%;
+  max-width: 300px;
   width: 100%;
   display: block; }
 
