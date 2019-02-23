@@ -91,3 +91,24 @@ h3 {
     }
 
 }
+
+// For Rafi: The media querie mixins start below here, if you find you need to change the width for any reason just update the variables above the mixins. If you need to add any you should be able to just copy the format below and change the mixin name and create a new variable. Or if you use them and find you prefer to use your own way I don't think there would be any issue with making a separate media querie partial and doing them the other way. 
+// MEDIA QUERIES
+$tablet-width: 600px;
+$tablet-wide-width: 900px;
+$desktop-width: 1200px;
+@mixin mobile {
+    @media (max-width: #{$tablet-width}) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width: #{$tablet-wide-width}) {
+        @content;
+    }
+}
+@mixin tablet-wide {
+    @media (max-width: #{$desktop-width}) {
+        @content;
+    }
+}

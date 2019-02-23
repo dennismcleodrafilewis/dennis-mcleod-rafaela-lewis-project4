@@ -349,6 +349,14 @@ footer {
   grid-gap: 30px;
   min-width: 0;
   min-height: 0; }
+  @media (max-width: 1200px) {
+    .grid-container {
+      -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 900px) {
+    .grid-container {
+      -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr; } }
 
 .grid-item {
   display: -webkit-box;

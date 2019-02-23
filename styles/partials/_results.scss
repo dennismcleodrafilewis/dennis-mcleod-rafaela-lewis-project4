@@ -5,6 +5,12 @@
     grid-gap: 30px;
     min-width: 0;
     min-height: 0;
+    @include tablet-wide {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
 }
 
 .grid-item {
