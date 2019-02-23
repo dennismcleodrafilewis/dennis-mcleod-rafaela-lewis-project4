@@ -1,7 +1,6 @@
 // Form global styles
 .dog-form {
     margin-top: 50px;
-    // padding: 0 5%;
 }
 
 label {
@@ -9,13 +8,9 @@ label {
     font-size: 1.3rem;
 }
 // Location Inputs
-// Flex styles
-
-.location-flex {
+.location {
     width: 100%;
     margin: 0;
-    // display: flex;
-    justify-content: space-between;
 }
 
 [type="text"] {
@@ -52,9 +47,9 @@ select {
   	font-size: 1rem;
   	font-family: $primary-font;
   	font-weight: $regular;
-  	// letter-spacing: 1px;
   	border: 2px solid $accent-color;
-  	background-color: $background;
+      background-color: $background;
+    //   MAKE NEW ARROW!!!!
   	// -webkit-appearance: none;
   	// -moz-appearance: none;
   	// appearance: none;
@@ -102,10 +97,10 @@ select {
             position: absolute;
             left: -10px;
             top: 0;
-
         }
     }       
 
+    // Custom inputs
     input[type='checkbox']:hover + label::before {
         background: lighten($accent-color, 20%);
     }

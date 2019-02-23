@@ -1,4 +1,14 @@
 footer {
     text-align: center;
     margin: 20px 0;
+    p {
+        @include mobile {
+            font-size: 0.8rem;
+        }
+
+        @include final {
+            font-size: 0.69rem;
+        }
+    }
+    
 }
