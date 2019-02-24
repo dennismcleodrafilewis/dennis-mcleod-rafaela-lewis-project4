@@ -1,8 +1,264 @@
 header {
     padding-top: 40px;
+
+    .accent-text {
+        font-family: $accent-font;
+        border-bottom: 3px solid $accent-color;
+    }
+
+
+    .logo {
+        position: relative;
+
+        // Paw Animation
+        .paw {
+            position: absolute;
+            color: $primary-text;
+            font-size: 2rem;
+            display: block;
+            // opacity: 0;
+            transform: rotate(90deg);
+
+            @include paw-adjust3 {
+                font-size: 1.5rem;
+            }
+
+            @include paw-adjust4 {
+                font-size: 1rem;
+            }
+        }
+
+        .paw1 {
+            top: 70px;
+            left: 760px;
+            -webkit-animation: fadein 500ms forwards;
+            -moz-animation: fadein 500ms forwards;
+            -ms-animation: fadein 500ms forwards;
+            -o-animation: fadein 500ms forwards;
+            animation: fadein 500ms forwards;
+
+            @include paw-adjust3 {
+                top: 90px;
+            }
+
+            @include paw-adjust4 {
+                top: 100px;
+            }
+
+            @include paw-adjust5 {
+                display: none;
+            }
+        }
+
+        .paw2 {
+            top: 30px;
+            left: 830px;
+            -webkit-animation: fadein 500ms 600ms forwards;
+            -moz-animation: fadein 500ms 600ms forwards;
+            -ms-animation: fadein 500ms 600ms forwards;
+            -o-animation: fadein 500ms 600ms forwards;
+            animation: fadein 500ms 600ms forwards;
+
+            @include paw-adjust1 {
+                left: 810px;
+            }
+
+            @include paw-adjust2 {
+                left: 795px;
+            }
+
+            @include paw-adjust3 {
+                top: 50px;
+                left: 790px;
+            }
+
+            @include paw-adjust4 {
+                top: 80px;
+                left: 780px;
+            }
+
+            @include paw-adjust5 {
+                display: none;
+            }
+        }
+
+        .paw3 {
+            top: 70px;
+            left: 900px;
+            -webkit-animation: fadein 500ms 1.2s forwards;
+            -moz-animation: fadein 500ms 1.2s forwards;
+            -ms-animation: fadein 500ms 1.2s forwards;
+            -o-animation: fadein 500ms 1.2s forwards;
+            animation: fadein 500ms 1.2s forwards;
+
+            @include paw-adjust1 {
+                left: 860px;
+            }
+
+            @include paw-adjust2 {
+                left: 830px;
+            }
+
+            @include paw-adjust3 {
+                top: 90px;
+                left: 820px;
+            }
+
+            @include paw-adjust4 {
+                top: 100px;
+                left: 800px;
+            }
+
+            @include paw-adjust5 {
+                display: none;
+            }
+        }
+
+        .paw4 {
+            top: 30px;
+            left: 970px;
+            -webkit-animation: fadein 500ms 1.8s forwards;
+            -moz-animation: fadein 500ms 1.8s forwards;
+            -ms-animation: fadein 500ms 1.8s forwards;
+            -o-animation: fadein 500ms 1.8s forwards;
+            animation: fadein 500ms 1.8s forwards;
+
+            @include paw-adjust1 {
+                left: 910px;
+            }
+
+            @include paw-adjust2 {
+                left: 865px;
+            }
+
+            @include paw-adjust3 {
+                top: 50px;
+                left: 850px;
+            }
+
+            @include paw-adjust4 {
+                top: 80px;
+                left: 820px;
+            }
+
+            @include paw-adjust5 {
+                display: none;
+            }
+        }
+
+        .paw5 {
+            top: 70px;
+            left: 1040px;
+            -webkit-animation: fadein 500ms 2.4s forwards;
+            -moz-animation: fadein 500ms 2.4s forwards;
+            -ms-animation: fadein 500ms 2.4s forwards;
+            -o-animation: fadein 500ms 2.4s forwards;
+            animation: fadein 500ms 2.4s forwards;
+
+            @include paw-adjust1 {
+                left: 960px;
+            }
+
+            @include paw-adjust2 {
+                left: 900px;
+            }
+
+            @include paw-adjust3 {
+                top: 90px;
+                left: 880px;
+            }
+
+            @include paw-adjust4 {
+                top: 100px;
+                left: 840px;
+            }
+
+            @include paw-adjust5 {
+                display: none;
+            }
+        }
+
+        .paw6 {
+            top: 30px;
+            left: 1110px;
+            -webkit-animation: fadein 500ms 3s forwards;
+            -moz-animation: fadein 500ms 3s forwards;
+            -ms-animation: fadein 500ms 3s forwards;
+            -o-animation: fadein 500ms 3s forwards;
+            animation: fadein 500ms 3s forwards;
+
+            @include paw-adjust1 {
+                left: 1010px;
+            }
+
+            @include paw-adjust2 {
+                left: 935px;
+            }
+
+            @include paw-adjust3 {
+                top: 50px;
+                left: 910px;
+            }
+
+            @include paw-adjust4 {
+                display: none;
+            }
+        }
+
+        .paw7 {
+            top: 70px;
+            left: 1180px;
+            -webkit-animation: fadein 500ms 3.6s forwards;
+            -moz-animation: fadein 500ms 3.6s forwards;
+            -ms-animation: fadein 500ms 3.6s forwards;
+            -o-animation: fadein 500ms 3.6s forwards;
+            animation: fadein 500ms 3.6s forwards;
+
+            @include paw-adjust1 {
+                left: 1060px;
+            }
+
+            @include paw-adjust2 {
+                left: 970px;
+            }
+
+            @include paw-adjust3 {
+                display: none;
+            }
+        }
+    }
+    
+    .wrapper{
+        background: tomato;
+    }
 }
 
-.accent-text {
-    font-family: $accent-font;
-    border-bottom: 3px solid $accent-color;
-}
+// Paw Print keyframe
+// @keyframes fadein {
+//     from { opacity: 0; }
+//     to   { opacity: 1; }
+// }
+
+// /* Firefox < 16 */
+// @-moz-keyframes fadein {
+//     from { opacity: 0; }
+//     to   { opacity: 1; }
+// }
+
+// /* Safari, Chrome and Opera > 12.1 */
+// @-webkit-keyframes fadein {
+//     from { opacity: 0; }
+//     to   { opacity: 1; }
+// }
+
+// /* Internet Explorer */
+// @-ms-keyframes fadein {
+//     from { opacity: 0; }
+//     to   { opacity: 1; }
+// }
+
+// /* Opera < 12.1 */
+// @-o-keyframes fadein {
+//     from { opacity: 0; }
+//     to   { opacity: 1; }
+// }

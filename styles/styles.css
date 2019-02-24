@@ -159,7 +159,7 @@ ul {
 a {
   text-decoration: none; }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, p {
   margin: 0; }
 
 fieldset {
@@ -225,10 +225,182 @@ h3 {
 
 header {
   padding-top: 40px; }
-
-.accent-text {
-  font-family: "Love Ya Like A Sister", cursive;
-  border-bottom: 3px solid slateblue; }
+  header .accent-text {
+    font-family: "Love Ya Like A Sister", cursive;
+    border-bottom: 3px solid slateblue; }
+  header .logo {
+    position: relative; }
+    header .logo .paw {
+      position: absolute;
+      color: #363537;
+      font-size: 2rem;
+      display: block;
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+      @media (max-width: 1265px) {
+        header .logo .paw {
+          font-size: 1.5rem; } }
+      @media (max-width: 1175px) {
+        header .logo .paw {
+          font-size: 1rem; } }
+    header .logo .paw1 {
+      top: 70px;
+      left: 760px;
+      -webkit-animation: fadein 500ms forwards;
+      -moz-animation: fadein 500ms forwards;
+      -ms-animation: fadein 500ms forwards;
+      -o-animation: fadein 500ms forwards;
+      animation: fadein 500ms forwards; }
+      @media (max-width: 1265px) {
+        header .logo .paw1 {
+          top: 90px; } }
+      @media (max-width: 1175px) {
+        header .logo .paw1 {
+          top: 100px; } }
+      @media (max-width: 1075px) {
+        header .logo .paw1 {
+          display: none; } }
+    header .logo .paw2 {
+      top: 30px;
+      left: 830px;
+      -webkit-animation: fadein 500ms 600ms forwards;
+      -moz-animation: fadein 500ms 600ms forwards;
+      -ms-animation: fadein 500ms 600ms forwards;
+      -o-animation: fadein 500ms 600ms forwards;
+      animation: fadein 500ms 600ms forwards; }
+      @media (max-width: 1550px) {
+        header .logo .paw2 {
+          left: 810px; } }
+      @media (max-width: 1375px) {
+        header .logo .paw2 {
+          left: 795px; } }
+      @media (max-width: 1265px) {
+        header .logo .paw2 {
+          top: 50px;
+          left: 790px; } }
+      @media (max-width: 1175px) {
+        header .logo .paw2 {
+          top: 80px;
+          left: 780px; } }
+      @media (max-width: 1075px) {
+        header .logo .paw2 {
+          display: none; } }
+    header .logo .paw3 {
+      top: 70px;
+      left: 900px;
+      -webkit-animation: fadein 500ms 1.2s forwards;
+      -moz-animation: fadein 500ms 1.2s forwards;
+      -ms-animation: fadein 500ms 1.2s forwards;
+      -o-animation: fadein 500ms 1.2s forwards;
+      animation: fadein 500ms 1.2s forwards; }
+      @media (max-width: 1550px) {
+        header .logo .paw3 {
+          left: 860px; } }
+      @media (max-width: 1375px) {
+        header .logo .paw3 {
+          left: 830px; } }
+      @media (max-width: 1265px) {
+        header .logo .paw3 {
+          top: 90px;
+          left: 820px; } }
+      @media (max-width: 1175px) {
+        header .logo .paw3 {
+          top: 100px;
+          left: 800px; } }
+      @media (max-width: 1075px) {
+        header .logo .paw3 {
+          display: none; } }
+    header .logo .paw4 {
+      top: 30px;
+      left: 970px;
+      -webkit-animation: fadein 500ms 1.8s forwards;
+      -moz-animation: fadein 500ms 1.8s forwards;
+      -ms-animation: fadein 500ms 1.8s forwards;
+      -o-animation: fadein 500ms 1.8s forwards;
+      animation: fadein 500ms 1.8s forwards; }
+      @media (max-width: 1550px) {
+        header .logo .paw4 {
+          left: 910px; } }
+      @media (max-width: 1375px) {
+        header .logo .paw4 {
+          left: 865px; } }
+      @media (max-width: 1265px) {
+        header .logo .paw4 {
+          top: 50px;
+          left: 850px; } }
+      @media (max-width: 1175px) {
+        header .logo .paw4 {
+          top: 80px;
+          left: 820px; } }
+      @media (max-width: 1075px) {
+        header .logo .paw4 {
+          display: none; } }
+    header .logo .paw5 {
+      top: 70px;
+      left: 1040px;
+      -webkit-animation: fadein 500ms 2.4s forwards;
+      -moz-animation: fadein 500ms 2.4s forwards;
+      -ms-animation: fadein 500ms 2.4s forwards;
+      -o-animation: fadein 500ms 2.4s forwards;
+      animation: fadein 500ms 2.4s forwards; }
+      @media (max-width: 1550px) {
+        header .logo .paw5 {
+          left: 960px; } }
+      @media (max-width: 1375px) {
+        header .logo .paw5 {
+          left: 900px; } }
+      @media (max-width: 1265px) {
+        header .logo .paw5 {
+          top: 90px;
+          left: 880px; } }
+      @media (max-width: 1175px) {
+        header .logo .paw5 {
+          top: 100px;
+          left: 840px; } }
+      @media (max-width: 1075px) {
+        header .logo .paw5 {
+          display: none; } }
+    header .logo .paw6 {
+      top: 30px;
+      left: 1110px;
+      -webkit-animation: fadein 500ms 3s forwards;
+      -moz-animation: fadein 500ms 3s forwards;
+      -ms-animation: fadein 500ms 3s forwards;
+      -o-animation: fadein 500ms 3s forwards;
+      animation: fadein 500ms 3s forwards; }
+      @media (max-width: 1550px) {
+        header .logo .paw6 {
+          left: 1010px; } }
+      @media (max-width: 1375px) {
+        header .logo .paw6 {
+          left: 935px; } }
+      @media (max-width: 1265px) {
+        header .logo .paw6 {
+          top: 50px;
+          left: 910px; } }
+      @media (max-width: 1175px) {
+        header .logo .paw6 {
+          display: none; } }
+    header .logo .paw7 {
+      top: 70px;
+      left: 1180px;
+      -webkit-animation: fadein 500ms 3.6s forwards;
+      -moz-animation: fadein 500ms 3.6s forwards;
+      -ms-animation: fadein 500ms 3.6s forwards;
+      -o-animation: fadein 500ms 3.6s forwards;
+      animation: fadein 500ms 3.6s forwards; }
+      @media (max-width: 1550px) {
+        header .logo .paw7 {
+          left: 1060px; } }
+      @media (max-width: 1375px) {
+        header .logo .paw7 {
+          left: 970px; } }
+      @media (max-width: 1265px) {
+        header .logo .paw7 {
+          display: none; } }
+  header .wrapper {
+    background: tomato; }
 
 .dog-form {
   margin-top: 50px; }
