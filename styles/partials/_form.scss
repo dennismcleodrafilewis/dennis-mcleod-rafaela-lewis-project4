@@ -6,11 +6,22 @@
 label {
     font-weight: $semi-bold;
     font-size: 1.3rem;
+
+    @include mobile {
+        font-size: 0.9rem;
+        font-weight: $regular;
+    }
 }
 // Location Inputs
 .location {
     width: 100%;
     margin: 0;
+
+    #province-state {
+        @include tablet {
+            margin-top: 20px;
+        }
+    }
 }
 
 [type="text"] {
@@ -22,8 +33,17 @@ label {
     font-size: 1.5rem;
     color: $primary-text;
     padding-left: 20px;
+    
     &:focus, :active {
         border: 2px solid $accent-color;
+    }
+
+    @include tablet {
+        width: 100%;
+    }
+
+    @include final {
+        font-size: 1.1rem;
     }
 }
 
@@ -32,13 +52,22 @@ label {
     margin-top: 20px;
     display: flex;
     width: 100%;
+    
+    @include tablet {
+        flex-direction: column;
+    }
 }
 
 [class="breed-label"] {
-    width: 50%;
+    width: 65%;
     display: block;
     font-family: $primary-font;
     padding: 10px 10px 10px 0;
+    
+    @include tablet {
+        width: 100%;
+        padding: 10px 0;
+    }
 }
 
 select {
@@ -53,11 +82,15 @@ select {
   	// -webkit-appearance: none;
   	// -moz-appearance: none;
   	// appearance: none;
-  	margin: 0 auto;
+    margin: 0 auto;
 }
 
 #breed {
-    width: 50%;
+    width: 35%;
+    
+    @include tablet {
+        width: 100%;
+    }
 }
 
 // Age, Size, Gender styles
@@ -66,6 +99,10 @@ select {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    @include tablet {
+        flex-direction: column;
+        margin-top: 0;
+    }
 }
 
 .age-container, .size-container, .gender-container {
@@ -73,6 +110,44 @@ select {
     flex-direction: column;
     width: 33%;
     text-align: center;
+    flex-wrap: wrap;
+    
+    @include tablet {
+        flex-direction: row;
+        width: 100%;
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    @include mobile {
+        flex-direction: column;
+    }
+
+    label {
+        @include tablet {
+            width: 50%;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+    select {
+        @include tablet-wide {
+            font-size: 0.8rem;
+        }
+
+        @include tablet {
+            width: 50%;
+        }
+
+        @include mobile {
+            width: 100%;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+    }
 }
 
 .option-selectors {
@@ -98,6 +173,14 @@ select {
             left: -10px;
             top: 0;
         }
+
+        @include tablet {
+            margin-right: 30px;
+        }
+
+        @include mobile {
+            margin-top: 10px;
+        }
     }       
 
     // Custom inputs
@@ -115,9 +198,25 @@ select {
         font-size: 1.3rem;
         padding: 10px 10px 10px 0;
         font-weight: $semi-bold;
+
+        @include mobile {
+            padding: 0;
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: $regular;
+        }
+
+        @include final {
+            font-size: 0.9rem;
+        }
     }
 }
 
 .options-container {
     padding-left: 10px;
+
+    @include mobile {
+        display: flex;
+        flex-direction: column;
+    }
 }

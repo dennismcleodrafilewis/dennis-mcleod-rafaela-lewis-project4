@@ -16,8 +16,10 @@ header {
             color: $primary-text;
             font-size: 2rem;
             display: block;
-            // opacity: 0;
+            opacity: 0;
             transform: rotate(90deg);
+            -webkit-backface-visibility: hidden;
+            // animation-timing-function: linear;
 
             @include paw-adjust3 {
                 font-size: 1.5rem;
@@ -46,6 +48,16 @@ header {
             }
 
             @include paw-adjust5 {
+                display: none;
+            }
+
+            @include paw-adjust6 {
+                display: block;
+                top: 235px;
+                left: 410px
+            }
+
+            @include mobile {
                 display: none;
             }
         }
@@ -80,6 +92,16 @@ header {
             @include paw-adjust5 {
                 display: none;
             }
+
+            @include paw-adjust6 {
+                display: block;
+                top: 215px;
+                left: 430px
+            }
+
+            @include mobile {
+                display: none;
+            }
         }
 
         .paw3 {
@@ -110,6 +132,16 @@ header {
             }
 
             @include paw-adjust5 {
+                display: none;
+            }
+
+            @include paw-adjust6 {
+                display: block;
+                top: 235px;
+                left: 450px;
+            }
+
+            @include mobile {
                 display: none;
             }
         }
@@ -144,6 +176,16 @@ header {
             @include paw-adjust5 {
                 display: none;
             }
+
+            @include paw-adjust6 {
+                display: block;
+                top: 215px;
+                left: 470px;
+            }
+
+            @include paw-adjust7 {
+                display: none;
+            }
         }
 
         .paw5 {
@@ -174,6 +216,16 @@ header {
             }
 
             @include paw-adjust5 {
+                display: none;
+            }
+
+            @include paw-adjust6 {
+                display: block;
+                top: 235px;
+                left: 490px;
+            }
+
+            @include paw-adjust7 {
                 display: none;
             }
         }
@@ -228,37 +280,37 @@ header {
         }
     }
     
-    .wrapper{
-        background: tomato;
-    }
+    // .wrapper{
+    //     background: tomato;
+    // }
 }
 
 // Paw Print keyframe
-// @keyframes fadein {
-//     from { opacity: 0; }
-//     to   { opacity: 1; }
-// }
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
-// /* Firefox < 16 */
-// @-moz-keyframes fadein {
-//     from { opacity: 0; }
-//     to   { opacity: 1; }
-// }
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
-// /* Safari, Chrome and Opera > 12.1 */
-// @-webkit-keyframes fadein {
-//     from { opacity: 0; }
-//     to   { opacity: 1; }
-// }
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
-// /* Internet Explorer */
-// @-ms-keyframes fadein {
-//     from { opacity: 0; }
-//     to   { opacity: 1; }
-// }
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
-// /* Opera < 12.1 */
-// @-o-keyframes fadein {
-//     from { opacity: 0; }
-//     to   { opacity: 1; }
-// }
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

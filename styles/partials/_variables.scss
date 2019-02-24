@@ -21,6 +21,8 @@ $tablet-wide-width: 900px;
 $desktop-width: 1200px;
 
 // Paw breakpoints
+$paw-breakpoint7: 640px;
+$paw-breakpoint6: 930px;
 $paw-breakpoint5: 1075px;
 $paw-breakpoint4: 1175px;
 $paw-breakpoint3: 1265px;
@@ -53,6 +55,18 @@ $paw-breakpoint1: 1550px;
 
 
 // Paw breakpoints
+@mixin paw-adjust7 {
+    @media (max-width: #{$paw-breakpoint7}) {
+        @content;
+    }
+}
+
+@mixin paw-adjust6 {
+    @media (max-width: #{$paw-breakpoint6}) {
+        @content;
+    }
+}
+
 @mixin paw-adjust5 {
     @media (max-width: #{$paw-breakpoint5}) {
         @content;

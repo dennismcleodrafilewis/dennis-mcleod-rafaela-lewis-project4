@@ -50,11 +50,21 @@ h1 {
     font-family: $accent-font;
     font-size: 7rem;
     line-height: 1;
+
+    @include mobile {
+        font-size: 5rem;
+    }
 }
 
 h2 {
     font-size: 1.5rem;
     font-weight: $bold;
+
+    @include mobile {
+        font-size: 1.1rem;
+        font-weight: $semi-bold;
+        margin-top: 20px;
+    }
 }
 
 h3 {
@@ -88,5 +98,10 @@ h3 {
 
     &:active, &:focus {
         border-radius: 40px;
+    }
+
+    @include final {
+        font-size: 1.5rem;
+        padding: 10px;
     }
 }
