@@ -16,8 +16,8 @@ $extra-bold: 800;
 // MEDIA QUERIES
 // Global queries
 $final-width: 375px;
-$tablet-width: 600px;
-$tablet-wide-width: 900px;
+$mobile-width: 600px;
+$tablet-width: 900px;
 $desktop-width: 1200px;
 
 // Paw breakpoints
@@ -37,17 +37,17 @@ $paw-breakpoint1: 1550px;
 }
 
 @mixin mobile {
-    @media (max-width: #{$tablet-width}) {
+    @media (max-width: #{$mobile-width}) {
         @content;
     }
 }
 @mixin tablet {
-    @media (max-width: #{$tablet-wide-width}) {
+    @media (max-width: #{$tablet-width}) {
         @content;
     }
 }
 
-@mixin tablet-wide {
+@mixin desktop {
     @media (max-width: #{$desktop-width}) {
         @content;
     }

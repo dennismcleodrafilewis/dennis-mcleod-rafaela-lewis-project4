@@ -12,6 +12,7 @@ label {
         font-weight: $regular;
     }
 }
+
 // Location Inputs
 .location {
     width: 100%;
@@ -77,11 +78,15 @@ select {
   	font-family: $primary-font;
   	font-weight: $regular;
   	border: 2px solid $accent-color;
-      background-color: $background;
-    //   MAKE NEW ARROW!!!!
-  	// -webkit-appearance: none;
-  	// -moz-appearance: none;
-  	// appearance: none;
+    background-color: $background;
+    // Custom Select arrow, adapted from https://codepen.io/herrfischer/pen/aNpWwy
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("../assets/select-arrow.png") no-repeat;
+    background-size: 1rem;
+    background-position: calc(100% - 20px) center;
+    background-repeat: no-repeat;
     margin: 0 auto;
 }
 
@@ -134,7 +139,7 @@ select {
     }
 
     select {
-        @include tablet-wide {
+        @include desktop {
             font-size: 0.8rem;
         }
 
