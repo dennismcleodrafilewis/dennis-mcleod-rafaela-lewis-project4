@@ -1,6 +1,7 @@
 /* Default styles */
 img {
     width: 100%;
+    height: 100%;
     display: block;
     max-height: 400px;
 }
@@ -45,7 +46,6 @@ body {
 }
 
 // Font Styles
-
 h1 {
     font-family: $accent-font;
     font-size: 7rem;
@@ -71,14 +71,16 @@ h3 {
     font-size: 1.3rem;
     font-weight: $extra-bold;
     font-family: $accent-font;
-    // Keep the name to one line
+    text-align: center;
+
+    // Keep the dog's name to one line
     max-height: 42px;
     overflow: hidden;
-    text-align: center;
 }
 
 // Additional class styles
-// Submit Button
+
+// Buttons
 .button {
     font-family: $accent-font;
     font-size: 2rem;

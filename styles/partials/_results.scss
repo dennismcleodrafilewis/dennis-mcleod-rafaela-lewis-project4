@@ -1,3 +1,4 @@
+// Set up the grid container
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -12,6 +13,7 @@
     }
 }
 
+// Grid item flex, padding, border and responsive styles
 .grid-item {
     display: flex;
     flex-direction: column;
@@ -29,16 +31,16 @@
     }
 }
 
+// Image styles -- to give all images a uniform size
 .image-container {
     height: 400px;
     width: auto;
     img {
-        width: 100%;
-        height: 100%;
         object-fit: cover;
     }
 }
 
+// Content flex, align and margin styles
 .content-flex-container {
     width: 100%;
     display: flex;

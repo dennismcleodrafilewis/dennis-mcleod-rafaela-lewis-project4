@@ -1,16 +1,20 @@
 header {
+    // Padding at top of page
     padding-top: 40px;
 
+    //Span in the H2 tagline
     .accent-text {
         font-family: $accent-font;
         border-bottom: 3px solid $accent-color;
     }
 
-
+    // Set a position relative on the logo div, to place the paw animation responsively
     .logo {
         position: relative;
 
         // Paw Animation
+
+        // Global paw styles
         .paw {
             position: absolute;
             color: $primary-text;
@@ -19,7 +23,6 @@ header {
             opacity: 0;
             transform: rotate(90deg);
             -webkit-backface-visibility: hidden;
-            // animation-timing-function: linear;
 
             @include paw-adjust3 {
                 font-size: 1.5rem;
@@ -30,9 +33,12 @@ header {
             }
         }
 
+        // Individual paw styles
         .paw1 {
             top: 70px;
             left: 760px;
+
+            // Animation
             -webkit-animation: fadein 500ms forwards;
             -moz-animation: fadein 500ms forwards;
             -ms-animation: fadein 500ms forwards;
@@ -65,6 +71,8 @@ header {
         .paw2 {
             top: 30px;
             left: 830px;
+
+            // Animation
             -webkit-animation: fadein 500ms 600ms forwards;
             -moz-animation: fadein 500ms 600ms forwards;
             -ms-animation: fadein 500ms 600ms forwards;
@@ -107,6 +115,8 @@ header {
         .paw3 {
             top: 70px;
             left: 900px;
+
+            // Animation
             -webkit-animation: fadein 500ms 1.2s forwards;
             -moz-animation: fadein 500ms 1.2s forwards;
             -ms-animation: fadein 500ms 1.2s forwards;
@@ -149,6 +159,8 @@ header {
         .paw4 {
             top: 30px;
             left: 970px;
+
+            // Animation
             -webkit-animation: fadein 500ms 1.8s forwards;
             -moz-animation: fadein 500ms 1.8s forwards;
             -ms-animation: fadein 500ms 1.8s forwards;
@@ -191,6 +203,8 @@ header {
         .paw5 {
             top: 70px;
             left: 1040px;
+
+            // Animation
             -webkit-animation: fadein 500ms 2.4s forwards;
             -moz-animation: fadein 500ms 2.4s forwards;
             -ms-animation: fadein 500ms 2.4s forwards;
@@ -233,6 +247,8 @@ header {
         .paw6 {
             top: 30px;
             left: 1110px;
+
+            // Animation
             -webkit-animation: fadein 500ms 3s forwards;
             -moz-animation: fadein 500ms 3s forwards;
             -ms-animation: fadein 500ms 3s forwards;
@@ -260,6 +276,8 @@ header {
         .paw7 {
             top: 70px;
             left: 1180px;
+
+            // Animation
             -webkit-animation: fadein 500ms 3.6s forwards;
             -moz-animation: fadein 500ms 3.6s forwards;
             -ms-animation: fadein 500ms 3.6s forwards;
@@ -279,13 +297,9 @@ header {
             }
         }
     }
-    
-    // .wrapper{
-    //     background: tomato;
-    // }
 }
 
-// Paw Print keyframe
+// Paw fadein animation
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }

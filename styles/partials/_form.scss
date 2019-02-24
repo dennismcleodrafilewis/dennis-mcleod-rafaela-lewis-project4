@@ -13,6 +13,27 @@ label {
     }
 }
 
+select {
+    width: 70%; 
+    padding: 10px;
+  	font-size: 1rem;
+  	font-family: $primary-font;
+  	font-weight: $regular;
+    border: 2px solid $accent-color;
+      
+    // Custom Select arrow, adapted from https://codepen.io/herrfischer/pen/aNpWwy
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url("../assets/select-arrow.png") no-repeat;
+    background-size: 1rem;
+    background-position: calc(100% - 20px) center;
+    background-repeat: no-repeat;
+    
+    margin: 0 auto;
+    background-color: $background;
+}
+
 // Location Inputs
 .location {
     width: 100%;
@@ -71,25 +92,6 @@ label {
     }
 }
 
-select {
-    width: 70%; 
-    padding: 10px;
-  	font-size: 1rem;
-  	font-family: $primary-font;
-  	font-weight: $regular;
-  	border: 2px solid $accent-color;
-    // Custom Select arrow, adapted from https://codepen.io/herrfischer/pen/aNpWwy
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url("../assets/select-arrow.png") no-repeat;
-    background-size: 1rem;
-    background-position: calc(100% - 20px) center;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-    background-color: $background;
-}
-
 #breed {
     width: 35%;
     
@@ -99,17 +101,21 @@ select {
 }
 
 // Age, Size, Gender styles
+// Flex styles
 .triple-option-container {
     margin-top: 20px;
     width: 100%;
     display: flex;
     justify-content: space-around;
+    
     @include tablet {
         flex-direction: column;
         margin-top: 0;
     }
 }
 
+
+// Further flex and responsive styles
 .age-container, .size-container, .gender-container {
     display: flex;
     flex-direction: column;
@@ -155,6 +161,7 @@ select {
     }
 }
 
+// Margin and custom checkbox
 .option-selectors {
     margin-top: 20px;
     input {
@@ -188,7 +195,6 @@ select {
         }
     }       
 
-    // Custom inputs
     input[type='checkbox']:hover + label::before {
         background: lighten($accent-color, 20%);
     }
@@ -217,6 +223,7 @@ select {
     }
 }
 
+// Padding and flex styles
 .options-container {
     padding-left: 10px;
 
@@ -238,7 +245,6 @@ select {
 }
 
 .swal-button {
-    // override vendor style
     background: $accent-color;
 
     &:not([disabled]):hover {

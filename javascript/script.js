@@ -1,9 +1,4 @@
-// Step 1: Get user's data from a quiz (form) through values (.val). 
-
-//Step 2: We'll submit the parameters from the user's answers to our Petfinder API call 
-
-// Step 3: We'll display the results based on user selection. Specifically (A) Image (B) Name (C) Gender (D) Age (E)Location, and a button to learn more about the dog on Petfinder 
-
+// DogApp object
 const dogApp = {};
 
 // Define variables
@@ -18,7 +13,7 @@ dogApp.proxyUrl = 'http://proxy.hackeryou.com'
 dogApp.corsProxy = 'https://cors-anywhere.herokuapp.com/'
 
 dogApp.getBreed = function() {
-    // Initial call to the Pet Finder API to get a list of dog breeds
+    // STEP ONE: Initial call to the Pet Finder API to get a list of dog breeds
     $.ajax({
         url: dogApp.corsProxy + dogApp.breedApiUrl,
         method: 'GET',
@@ -36,21 +31,24 @@ dogApp.getBreed = function() {
         // Populate the breed selection drop down menu with all breeds listed in the Pet Finder API
         breeds.forEach(element => {
             $('#breed').append(`<option value="${element.$t}">${element.$t}</option>`);
-        });
-            
+        });      
     });
 }
 
-// Empty object, where we'll store the user's answers
+// STEP 2: On submit, get user's data from a quiz (form) through values (.val). 
+
+// Empty object, where we'll store all of the user's answers
 dogApp.userAnswers = {}
 
 // Set the event listener for our form
 dogApp.userPreferences = function() {
+     //Prevent event default on submit
     $('#animal-finder').submit(function(event) {
         event.preventDefault();
+        //Empty array to for user's answers to A) House Trained, B) Has shots, C) Fixed
         dogApp.optionsSelectedArray = [];
         
-        // Get the User's Values
+        // Get the User's Values:
         // City
         dogApp.userAnswers.dogCityAnswer = $("#city").val();
         // State/Province
@@ -89,7 +87,10 @@ dogApp.userPreferences = function() {
             dogApp.optionsSelectedArray.push(dogApp.userAnswers.fixedAnswer)
         }
         
-        // Second Ajax call -- return dogs that align with user's choices
+
+        //STEP 3: We'll submit the key value pairs from the user's answers to our Petfinder API call 
+
+        // Second Ajax call -- return dogs that align with user's answers
         $.ajax ({
             url: dogApp.corsProxy + dogApp.petFindUrl,
             method: 'GET',
@@ -104,33 +105,42 @@ dogApp.userPreferences = function() {
                 size: dogApp.userAnswers.sizeAnswer,
                 sex: dogApp.userAnswers.genderAnswer,
             }
-        // Filter through the returned array to return dogs with the user's three optional selections
+
+        // If the user hasn't entered a cit and/or province/sate with North America run a Sweet Alert
         }).then(function(data){
             if (data.petfinder.pets === undefined) {
                 swal("Please make sure you've entered a City and Province/State in North America.");
                 return
             }
+            //Take the data we get back
             dogApp.filterOptions(data);
-            // Empty out container after search has been run
+            // Empty out container before appending new results (displayDogs)
             $("#grid-container").empty();
+            //RUN STEP 4: Run displayDogs to append the available dogs that meet the user's requirements onto the page
             dogApp.displayDogs();
         })
     })
 }
 
+// STEP 3 CONTINUED: Filtering for additional user requirements:
+
 // Array for three optional selections -- House Trained, Has Shots and Altered
 dogApp.optionsSelectedArray = []
 
-// Function to filter through the returned array to return dogs with the user's three optional selections
+// Function to filter through the returned array to return dogs with the user's three optional selections -- (A) House Trained, B) Has shots, C) Fixed
 dogApp.filterOptions = function(data) {
+    // The initial pets returned, before filtering for the three optional selections
     let petArray = data.petfinder.pets.pet;
+    //If no dogs meeting the user's requirements are returned, run a Sweet Alert
     if (petArray === undefined) {
         swal("Sorry, no dogs match your requirements.");
         return;
     }
+    //If the returns are not an array, turn it into one
     if (Array.isArray(petArray) === false ) {
         petArray = [petArray];
     }
+    // Filter through the initially returned array for dogs that match up with our user's chosen three optional selections -- (A) House Trained, B) Has shots, C) Fixed
     dogApp.optionsFilteredArray = petArray;
     dogApp.optionsSelectedArray.forEach(element => {
         const filterValue = element;
@@ -145,11 +155,10 @@ dogApp.filterOptions = function(data) {
             })
             return housetrained.length > 0;
         })
-        
     });
 }
 
-// Append the Dogs to the Results section
+// STEP 4: Append the Dogs to the Results section
 dogApp.displayDogs = function(){
     dogApp.optionsFilteredArray.forEach(function(dog){ 
         if (dog.media.photos === undefined) return; 
@@ -161,8 +170,6 @@ dogApp.displayDogs = function(){
         const contentFlex = $('<div>').addClass('content-flex-container').append(name,location,button)
         const imageDiv = $('<div>').addClass('image-container').append(image);
         const gridItem = $('<div>').addClass('grid-item').append(imageDiv, contentFlex)
-        // const imgItem = $('.grid-item').append(image);
-    //    const textItem = $('.grid-item').append(name,location,button);
        $("#grid-container").append(gridItem);
     })
 }

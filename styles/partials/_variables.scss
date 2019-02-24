@@ -1,4 +1,4 @@
-// Font Style
+// Font
 $primary-font: 'Open Sans', sans-serif;
 $accent-font: 'Love Ya Like A Sister', cursive;
 
@@ -52,7 +52,6 @@ $paw-breakpoint1: 1550px;
         @content;
     }
 }
-
 
 // Paw breakpoints
 @mixin paw-adjust7 {

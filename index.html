@@ -15,20 +15,22 @@
     <header>
         <!-- Wrapper starts -->
         <div class="wrapper">
-            <!-- Header Written -->
-                <div class="logo">
-                    <h1>Mutt Match</h1>
-                    <!-- Animation -->
-                    <i class="fas fa-paw paw paw1" aria-hidden="true"></i>
-                    <i class="fas fa-paw paw paw2" aria-hidden="true"></i>
-                    <i class="fas fa-paw paw paw3" aria-hidden="true"></i>
-                    <i class="fas fa-paw paw paw4" aria-hidden="true"></i>
-                    <i class="fas fa-paw paw paw5" aria-hidden="true"></i>
-                    <i class="fas fa-paw paw paw6" aria-hidden="true"></i>
-                    <i class="fas fa-paw paw paw7" aria-hidden="true"></i>
-                </div>
+           <!-- Header Logo Animation container -->
+            <div class="logo">
+                <!-- Logo -->
+                <h1>Mutt Match</h1>
+                <!-- Animation -->
+                <i class="fas fa-paw paw paw1" aria-hidden="true"></i>
+                <i class="fas fa-paw paw paw2" aria-hidden="true"></i>
+                <i class="fas fa-paw paw paw3" aria-hidden="true"></i>
+                <i class="fas fa-paw paw paw4" aria-hidden="true"></i>
+                <i class="fas fa-paw paw paw5" aria-hidden="true"></i>
+                <i class="fas fa-paw paw paw6" aria-hidden="true"></i>
+                <i class="fas fa-paw paw paw7" aria-hidden="true"></i>
+            </div>
 
-                <h2>Answers a few quick questions, and we'll find your dream <span class="accent-text">Mutt Match</span>.</h2>
+            <!-- Tagline -->
+            <h2>Answers a few quick questions, and we'll find your dream <span class="accent-text">Mutt Match</span>.</h2>
             
         <!-- Wrapper ends -->
         </div>
@@ -106,11 +108,12 @@
                                 <option value="F">Female</option>
                             </select>
                         </div>
+                    
                     <!-- Triple Option Container ends -->
                     </div>
 
                     <!-- Optional Preferences -->
-                    <!-- Naming conventions on IDs set to match values in the Petfinder API. -->
+                    <!-- Naming conventions on values set to match values in the Petfinder API. -->
                     <fieldset class="option-selectors">
                         <p>Please check off all that apply:</p>
                         <!-- House Trained -->
@@ -128,6 +131,8 @@
                         
                         </div>
                     </fieldset>
+
+                    <!-- Submit -->
                     <input type="submit" class="button" value="Submit">
 
                 <!-- FORM ENDS -->
@@ -142,6 +147,8 @@
             <!-- Wrapper starts -->
             <div class="wrapper grid-container" id="grid-container">
 
+                <!-- Results to be appended -->
+
             <!-- Wrapper ends -->
             </div>
         <!-- RESULTS SECTION ENDS -->
@@ -152,13 +159,18 @@
 
     <!-- FOOTER STARTS -->
     <footer>
+        <!-- Wrapper starts -->
         <div class="wrapper">
             <p class="footer-para">© Dennis McLeod & Rafaela Lewis 2019.</p>
+        <!-- Wrapper ends -->
         </div>
-    </footer>
     <!-- FOOTER ENDS -->
+    </footer>
+    
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="javascript/script.js"></script>
+
 </body>
 </html>
