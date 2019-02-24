@@ -107,7 +107,7 @@ dogApp.userPreferences = function() {
         // Filter through the returned array to return dogs with the user's three optional selections
         }).then(function(data){
             if (data.petfinder.pets === undefined) {
-                swal("Please make sure you've entered a City and Province/State in North America");
+                swal("Please make sure you've entered a City and Province/State in North America.");
                 return
             }
             dogApp.filterOptions(data);
@@ -125,7 +125,7 @@ dogApp.optionsSelectedArray = []
 dogApp.filterOptions = function(data) {
     let petArray = data.petfinder.pets.pet;
     if (petArray === undefined) {
-        swal("No dogs match your requirements");
+        swal("Sorry, no dogs match your requirements.");
         return;
     }
     if (Array.isArray(petArray) === false ) {
