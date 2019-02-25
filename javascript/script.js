@@ -45,7 +45,7 @@ dogApp.userPreferences = function() {
      //Prevent event default on submit
     $('#animal-finder').submit(function(event) {
         event.preventDefault();
-        //Empty array to for user's answers to A) House Trained, B) Has shots, C) Fixed
+        //Empty the options selected array each time the form is submitted so that the new results can be added
         dogApp.optionsSelectedArray = [];
         
         // Get the User's Values:
@@ -106,7 +106,7 @@ dogApp.userPreferences = function() {
                 sex: dogApp.userAnswers.genderAnswer,
             }
 
-        // If the user hasn't entered a cit and/or province/sate with North America run a Sweet Alert
+        // If the user hasn't entered a city and/or province/state with North America run a Sweet Alert
         }).then(function(data){
             if (data.petfinder.pets === undefined) {
                 swal("Please make sure you've entered a City and Province/State in North America.");
@@ -125,6 +125,7 @@ dogApp.userPreferences = function() {
 // STEP 3 CONTINUED: Filtering for additional user requirements:
 
 // Array for three optional selections -- House Trained, Has Shots and Altered
+// Creating the optionsSelectedArray that will be populated when the user selects their filter options
 dogApp.optionsSelectedArray = []
 
 // Function to filter through the returned array to return dogs with the user's three optional selections -- (A) House Trained, B) Has shots, C) Fixed
@@ -136,7 +137,7 @@ dogApp.filterOptions = function(data) {
         swal("Sorry, no dogs match your requirements.");
         return;
     }
-    //If the returns are not an array, turn it into one
+    //If the returns are not an array, turn it into one (this only happens when there is one item returned)
     if (Array.isArray(petArray) === false ) {
         petArray = [petArray];
     }
@@ -144,6 +145,7 @@ dogApp.filterOptions = function(data) {
     dogApp.optionsFilteredArray = petArray;
     dogApp.optionsSelectedArray.forEach(element => {
         const filterValue = element;
+        // The options in the data returned by the API are stored as an array of objects that each have the same key ($t). The first filter creates an array of just the options returned for each element that can be further filtered to return just the options the user has selected
         dogApp.optionsFilteredArray = dogApp.optionsFilteredArray.filter(element => {
             if (element.options.option === undefined) return
             let optionsArray = element.options.option;
@@ -165,7 +167,6 @@ dogApp.displayDogs = function(){
        const image = $("<img>").attr("src", dog.media.photos.photo[2].$t);
        const name = $("<h3>").text(dog.name.$t);
        const location = $("<p>").text(`${dog.contact.city.$t}, ${dog.contact.state.$t}`);
-        // const nameLowerCase = name.toLowerCase()
         const button = $("<a>").addClass("button").attr("href", `https://www.petfinder.com/petdetail/${dog.id.$t}`).text(`Meet your Mutt Match`);
         const contentFlex = $('<div>').addClass('content-flex-container').append(name,location,button)
         const imageDiv = $('<div>').addClass('image-container').append(image);
