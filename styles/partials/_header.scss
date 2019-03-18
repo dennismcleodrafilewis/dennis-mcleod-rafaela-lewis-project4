@@ -11,10 +11,15 @@ header {
     // Set a position relative on the logo div, to place the paw animation responsively
     .logo {
         position: relative;
+        display: flex;
 
         // Paw Animation
 
         // Global paw styles
+        .paw-container {
+            position: relative;
+            // width: 25%;
+        }
         .paw {
             position: absolute;
             color: $primary-text;
@@ -23,20 +28,23 @@ header {
             opacity: 0;
             transform: rotate(90deg);
             -webkit-backface-visibility: hidden;
-
-            @include paw-adjust3 {
-                font-size: 1.5rem;
+            @include mobile {
+                display: none;
             }
 
-            @include paw-adjust4 {
-                font-size: 1rem;
-            }
+            // @include paw-adjust3 {
+            //     font-size: 1.5rem;
+            // }
+
+            // @include paw-adjust4 {
+            //     font-size: 1rem;
+            // }
         }
 
         // Individual paw styles
         .paw1 {
-            top: 70px;
-            left: 760px;
+            top: 0.5em;
+            left: 10px;
 
             // Animation
             -webkit-animation: fadein 500ms forwards;
@@ -45,32 +53,32 @@ header {
             -o-animation: fadein 500ms forwards;
             animation: fadein 500ms forwards;
 
-            @include paw-adjust3 {
-                top: 90px;
-            }
+            // @include paw-adjust3 {
+            //     top: 90px;
+            // }
 
-            @include paw-adjust4 {
-                top: 100px;
-            }
+            // @include paw-adjust4 {
+            //     top: 100px;
+            // }
 
-            @include paw-adjust5 {
-                display: none;
-            }
+            // @include paw-adjust5 {
+            //     display: none;
+            // }
 
-            @include paw-adjust6 {
-                display: block;
-                top: 235px;
-                left: 410px
-            }
+            // @include paw-adjust6 {
+            //     display: block;
+            //     top: 235px;
+            //     left: 410px
+            // }
 
-            @include mobile {
-                display: none;
-            }
+            // @include mobile {
+            //     display: none;
+            // }
         }
 
         .paw2 {
-            top: 30px;
-            left: 830px;
+            top: 50px;
+            left: 50px;
 
             // Animation
             -webkit-animation: fadein 500ms 600ms forwards;
@@ -79,42 +87,42 @@ header {
             -o-animation: fadein 500ms 600ms forwards;
             animation: fadein 500ms 600ms forwards;
 
-            @include paw-adjust1 {
-                left: 810px;
-            }
+            // @include paw-adjust1 {
+            //     left: 810px;
+            // }
 
-            @include paw-adjust2 {
-                left: 795px;
-            }
+            // @include paw-adjust2 {
+            //     left: 795px;
+            // }
 
-            @include paw-adjust3 {
-                top: 50px;
-                left: 790px;
-            }
+            // @include paw-adjust3 {
+            //     top: 50px;
+            //     left: 790px;
+            // }
 
-            @include paw-adjust4 {
-                top: 80px;
-                left: 780px;
-            }
+            // @include paw-adjust4 {
+            //     top: 80px;
+            //     left: 780px;
+            // }
 
-            @include paw-adjust5 {
-                display: none;
-            }
+            // @include paw-adjust5 {
+            //     display: none;
+            // }
 
-            @include paw-adjust6 {
-                display: block;
-                top: 215px;
-                left: 430px
-            }
+            // @include paw-adjust6 {
+            //     display: block;
+            //     top: 215px;
+            //     left: 430px
+            // }
 
-            @include mobile {
-                display: none;
-            }
+            // @include mobile {
+            //     display: none;
+            // }
         }
 
         .paw3 {
-            top: 70px;
-            left: 900px;
+            top: 10px;
+            left: 90px;
 
             // Animation
             -webkit-animation: fadein 500ms 1.2s forwards;
@@ -123,42 +131,42 @@ header {
             -o-animation: fadein 500ms 1.2s forwards;
             animation: fadein 500ms 1.2s forwards;
 
-            @include paw-adjust1 {
-                left: 860px;
-            }
+            // @include paw-adjust1 {
+            //     left: 860px;
+            // }
 
-            @include paw-adjust2 {
-                left: 830px;
-            }
+            // @include paw-adjust2 {
+            //     left: 830px;
+            // }
 
-            @include paw-adjust3 {
-                top: 90px;
-                left: 820px;
-            }
+            // @include paw-adjust3 {
+            //     top: 90px;
+            //     left: 820px;
+            // }
 
-            @include paw-adjust4 {
-                top: 100px;
-                left: 800px;
-            }
+            // @include paw-adjust4 {
+            //     top: 100px;
+            //     left: 800px;
+            // }
 
-            @include paw-adjust5 {
-                display: none;
-            }
+            // @include paw-adjust5 {
+            //     display: none;
+            // }
 
-            @include paw-adjust6 {
-                display: block;
-                top: 235px;
-                left: 450px;
-            }
+            // @include paw-adjust6 {
+            //     display: block;
+            //     top: 235px;
+            //     left: 450px;
+            // }
 
-            @include mobile {
-                display: none;
-            }
+            // @include mobile {
+            //     display: none;
+            // }
         }
 
         .paw4 {
-            top: 30px;
-            left: 970px;
+            top: 50px;
+            left: 130px;
 
             // Animation
             -webkit-animation: fadein 500ms 1.8s forwards;
@@ -167,42 +175,42 @@ header {
             -o-animation: fadein 500ms 1.8s forwards;
             animation: fadein 500ms 1.8s forwards;
 
-            @include paw-adjust1 {
-                left: 910px;
-            }
+            // @include paw-adjust1 {
+            //     left: 910px;
+            // }
 
-            @include paw-adjust2 {
-                left: 865px;
-            }
+            // @include paw-adjust2 {
+            //     left: 865px;
+            // }
 
-            @include paw-adjust3 {
-                top: 50px;
-                left: 850px;
-            }
+            // @include paw-adjust3 {
+            //     top: 50px;
+            //     left: 850px;
+            // }
 
-            @include paw-adjust4 {
-                top: 80px;
-                left: 820px;
-            }
+            // @include paw-adjust4 {
+            //     top: 80px;
+            //     left: 820px;
+            // }
 
-            @include paw-adjust5 {
-                display: none;
-            }
+            // @include paw-adjust5 {
+            //     display: none;
+            // }
 
-            @include paw-adjust6 {
-                display: block;
-                top: 215px;
-                left: 470px;
-            }
+            // @include paw-adjust6 {
+            //     display: block;
+            //     top: 215px;
+            //     left: 470px;
+            // }
 
-            @include paw-adjust7 {
-                display: none;
-            }
+            // @include paw-adjust7 {
+            //     display: none;
+            // }
         }
 
         .paw5 {
-            top: 70px;
-            left: 1040px;
+            top: 10px;
+            left: 170px;
 
             // Animation
             -webkit-animation: fadein 500ms 2.4s forwards;
@@ -211,91 +219,91 @@ header {
             -o-animation: fadein 500ms 2.4s forwards;
             animation: fadein 500ms 2.4s forwards;
 
-            @include paw-adjust1 {
-                left: 960px;
-            }
+            // @include paw-adjust1 {
+            //     left: 960px;
+            // }
 
-            @include paw-adjust2 {
-                left: 900px;
-            }
+            // @include paw-adjust2 {
+            //     left: 900px;
+            // }
 
-            @include paw-adjust3 {
-                top: 90px;
-                left: 880px;
-            }
+            // @include paw-adjust3 {
+            //     top: 90px;
+            //     left: 880px;
+            // }
 
-            @include paw-adjust4 {
-                top: 100px;
-                left: 840px;
-            }
+            // @include paw-adjust4 {
+            //     top: 100px;
+            //     left: 840px;
+            // }
 
-            @include paw-adjust5 {
-                display: none;
-            }
+            // @include paw-adjust5 {
+            //     display: none;
+            // }
 
-            @include paw-adjust6 {
-                display: block;
-                top: 235px;
-                left: 490px;
-            }
+            // @include paw-adjust6 {
+            //     display: block;
+            //     top: 235px;
+            //     left: 490px;
+            // }
 
-            @include paw-adjust7 {
-                display: none;
-            }
+            // @include paw-adjust7 {
+            //     display: none;
+            // }
         }
 
-        .paw6 {
-            top: 30px;
-            left: 1110px;
+        // .paw6 {
+        //     top: 30px;
+        //     left: 1110px;
 
-            // Animation
-            -webkit-animation: fadein 500ms 3s forwards;
-            -moz-animation: fadein 500ms 3s forwards;
-            -ms-animation: fadein 500ms 3s forwards;
-            -o-animation: fadein 500ms 3s forwards;
-            animation: fadein 500ms 3s forwards;
+        //     // Animation
+        //     -webkit-animation: fadein 500ms 3s forwards;
+        //     -moz-animation: fadein 500ms 3s forwards;
+        //     -ms-animation: fadein 500ms 3s forwards;
+        //     -o-animation: fadein 500ms 3s forwards;
+        //     animation: fadein 500ms 3s forwards;
 
-            @include paw-adjust1 {
-                left: 1010px;
-            }
+        //     // @include paw-adjust1 {
+        //     //     left: 1010px;
+        //     // }
 
-            @include paw-adjust2 {
-                left: 935px;
-            }
+        //     // @include paw-adjust2 {
+        //     //     left: 935px;
+        //     // }
 
-            @include paw-adjust3 {
-                top: 50px;
-                left: 910px;
-            }
+        //     // @include paw-adjust3 {
+        //     //     top: 50px;
+        //     //     left: 910px;
+        //     // }
 
-            @include paw-adjust4 {
-                display: none;
-            }
-        }
+        //     // @include paw-adjust4 {
+        //     //     display: none;
+        //     // }
+        // }
 
-        .paw7 {
-            top: 70px;
-            left: 1180px;
+        // .paw7 {
+        //     top: 70px;
+        //     left: 1180px;
 
-            // Animation
-            -webkit-animation: fadein 500ms 3.6s forwards;
-            -moz-animation: fadein 500ms 3.6s forwards;
-            -ms-animation: fadein 500ms 3.6s forwards;
-            -o-animation: fadein 500ms 3.6s forwards;
-            animation: fadein 500ms 3.6s forwards;
+        //     // Animation
+        //     -webkit-animation: fadein 500ms 3.6s forwards;
+        //     -moz-animation: fadein 500ms 3.6s forwards;
+        //     -ms-animation: fadein 500ms 3.6s forwards;
+        //     -o-animation: fadein 500ms 3.6s forwards;
+        //     animation: fadein 500ms 3.6s forwards;
 
-            @include paw-adjust1 {
-                left: 1060px;
-            }
+        //     // @include paw-adjust1 {
+        //     //     left: 1060px;
+        //     // }
 
-            @include paw-adjust2 {
-                left: 970px;
-            }
+        //     // @include paw-adjust2 {
+        //     //     left: 970px;
+        //     // }
 
-            @include paw-adjust3 {
-                display: none;
-            }
-        }
+        //     // @include paw-adjust3 {
+        //     //     display: none;
+        //     // }
+        // }
     }
 }
 

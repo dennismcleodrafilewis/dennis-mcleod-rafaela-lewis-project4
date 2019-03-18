@@ -14,7 +14,7 @@ label {
 }
 
 select {
-    width: 70%; 
+    width: 90%; 
     padding: 10px;
   	font-size: 1rem;
   	font-family: $primary-font;
@@ -29,8 +29,6 @@ select {
     background-size: 1rem;
     background-position: calc(100% - 20px) center;
     background-repeat: no-repeat;
-    
-    margin: 0 auto;
     background-color: $background;
 }
 
@@ -56,7 +54,7 @@ select {
     color: $primary-text;
     padding-left: 20px;
     
-    &:focus, :active {
+    &:focus, {
         border: 2px solid $accent-color;
     }
 
@@ -69,36 +67,6 @@ select {
     }
 }
 
-// Breed inputs
-.breed-container {
-    margin-top: 20px;
-    display: flex;
-    width: 100%;
-    
-    @include tablet {
-        flex-direction: column;
-    }
-}
-
-[class="breed-label"] {
-    width: 65%;
-    display: block;
-    font-family: $primary-font;
-    padding: 10px 10px 10px 0;
-    
-    @include tablet {
-        width: 100%;
-        padding: 10px 0;
-    }
-}
-
-#breed {
-    width: 35%;
-    
-    @include tablet {
-        width: 100%;
-    }
-}
 
 // Age, Size, Gender styles
 // Flex styles
@@ -116,11 +84,11 @@ select {
 
 
 // Further flex and responsive styles
-.age-container, .size-container, .gender-container {
+.age-container, .size-container, .gender-container, .breed-container {
     display: flex;
     flex-direction: column;
-    width: 33%;
-    text-align: center;
+    width: 25%;
+    text-align: left;
     flex-wrap: wrap;
     
     @include tablet {
