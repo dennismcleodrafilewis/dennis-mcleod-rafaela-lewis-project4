@@ -20,13 +20,16 @@
                 <!-- Logo -->
                 <h1>Mutt Match</h1>
                 <!-- Animation -->
-                <i class="fas fa-paw paw paw1" aria-hidden="true"></i>
-                <i class="fas fa-paw paw paw2" aria-hidden="true"></i>
-                <i class="fas fa-paw paw paw3" aria-hidden="true"></i>
-                <i class="fas fa-paw paw paw4" aria-hidden="true"></i>
-                <i class="fas fa-paw paw paw5" aria-hidden="true"></i>
-                <i class="fas fa-paw paw paw6" aria-hidden="true"></i>
-                <i class="fas fa-paw paw paw7" aria-hidden="true"></i>
+                <div class="paw-container">
+                    <i class="fas fa-paw paw paw1" aria-hidden="true"></i>
+                    <i class="fas fa-paw paw paw2" aria-hidden="true"></i>
+                    <i class="fas fa-paw paw paw3" aria-hidden="true"></i>
+                    <i class="fas fa-paw paw paw4" aria-hidden="true"></i>
+                    <i class="fas fa-paw paw paw5" aria-hidden="true"></i>
+                    <i class="fas fa-paw paw paw6" aria-hidden="true"></i>
+                    <i class="fas fa-paw paw paw7" aria-hidden="true"></i>
+                
+                </div>
             </div>
 
             <!-- Tagline -->
@@ -56,18 +59,18 @@
                         <input type="text" id="province-state" placeholder="Province or State" required>
                     </fieldset>
 
-                    <!-- Breed -->
-                    <div class="breed-container">
-                        <label for=breed" class="breed-label">Are you looking for a certain breed?</label>
-                        
-                        <select name="breed" id="breed">
-                            <option value="">No Preference</option>
-                            <!-- Additional breeds dynamically added from the API -->
-                        </select>
-                    </div>
-
+                    
                     <!-- Triple Option Container starts -->
+                    <!-- Breed -->
                     <div class="triple-option-container">
+                        <div class="breed-container">
+                            <label for=breed" class="breed-label">Preferred breed:</label>
+                            
+                            <select name="breed" id="breed">
+                                <option value="">No Preference</option>
+                                <!-- Additional breeds dynamically added from the API -->
+                            </select>
+                        </div>
                         <!-- Age -->
                         <div class="age-container">
                             <label for="age">Preferred age:</label>
